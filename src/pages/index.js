@@ -1,10 +1,10 @@
 import React from 'react'
-
+import Loading from '../components/Loading'
 import MainLayout from '../components/MainLayout'
 
 const IndexPage = () => (
   <MainLayout>
-    <div>Hello from Gatsby!</div>
+    <Loading />
   </MainLayout>
 )
 
