@@ -3,12 +3,24 @@ import styled, { keyframes } from 'styled-components'
 
 import Blob from './atoms/Blob'
 
+const FadeOutAnimation = props => keyframes`
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 500ms, opacity 500ms linear;
+  }
+`
+
 const LoadingAnimation = props => keyframes`
   0% {
     width: 0%;
   }
   100% {
     width: 100%;
+    visibility: hidden;
   }
 `
 
@@ -18,7 +30,12 @@ const StyledContainer = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: ${({ theme }) => theme.color.primary};
+  animation: ${FadeOutAnimation} 500ms 2s linear forwards;
+  z-index: 9999;
 `
 
 const StyledLoadingBar = styled.div`
@@ -26,7 +43,7 @@ const StyledLoadingBar = styled.div`
   height: 6px;
   background-color: transparent;
   position: absolute;
-  bottom: 100px;
+  bottom: 60px;
 `
 
 const StyledLoader = styled.div`
@@ -39,13 +56,13 @@ const StyledLoader = styled.div`
     rgba(255, 117, 0, 0.8) 80%,
     rgba(255, 117, 0, 1) 100%
   );
-  animation: ${LoadingAnimation} 1.2s linear forwards;
+  animation: ${LoadingAnimation} 2s linear forwards;
 `
 
 const Loading = () => {
   return (
     <StyledContainer>
-      <Blob>
+      <Blob size="300px">
         <StyledLoadingBar>
           <StyledLoader />
         </StyledLoadingBar>

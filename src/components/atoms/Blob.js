@@ -38,6 +38,7 @@ const StyledBlob = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  transform: scale(1);
 
   ::before {
     content: '';
