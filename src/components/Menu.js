@@ -1,37 +1,9 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import logoDark from '../images/mm-logo-dark.svg'
-import logoLight from '../images/mm-logo-light.svg'
-import Blob from '../components/atoms/Blob'
-import { Link } from 'gatsby'
-import TransitionLink from 'gatsby-plugin-transition-link'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { device } from '../utils/device'
-
-const StyledInnerContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: flex-start;
-  height: 80px;
-  width: 100%;
-`
-
-const StyledLogo = styled.div`
-  width: 100px;
-  height: 100%;
-  background-image: url(${logoDark});
-  background-size: 80px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  z-index: 990;
-`
-const StyledTitle = styled.h3`
-  text-transform: uppercase;
-  font-weight: ${({ theme }) => theme.bold};
-  letter-spacing: 1px;
-  color: white;
-  z-index: 990;
-`
+import Blob from '../components/atoms/Blob'
 
 const StyledMenuContainer = styled.div`
   display: flex;
@@ -204,52 +176,69 @@ const StyledSlidingMenuListContainer = styled.div`
   }
 `
 
-const Nav = ({ title, navColor, children, navHeight }) => {
+const StyledBlobContainer = styled.div`
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1099;
+  opacity: ${({ state }) => (state ? '0' : '1')};
+  transition: opacity 300ms 200ms ease-in-out;
+  :hover {
+    cursor: pointer;
+  }
+`
+
+const Menu = ({ navColor, children }) => {
   const [state, setState] = useState(false)
 
   const toggleMenu = () => {
     setState(!state)
   }
-
   return (
     <>
-      <StyledInnerContainer>
-        <StyledLogo />
-        <StyledTitle>{title}</StyledTitle>
-        <StyledMenuContainer
-          onClick={toggleMenu}
-          state={state}
-          navColor={navColor}
-        >
-          <p>MENU</p>
-          <StyledMenuButton>
-            <StyledHamburger>
-              <StyledHamburgerInner toggle={state} navColor={navColor} />
-            </StyledHamburger>
-          </StyledMenuButton>
-        </StyledMenuContainer>
-      </StyledInnerContainer>
-      <StyledSligingMenuContainer toggle={state}>
+      <StyledMenuContainer
+        onClick={toggleMenu}
+        state={state}
+        navColor={navColor}
+      >
+        <p>MENU</p>
+        <StyledMenuButton>
+          <StyledHamburger>
+            <StyledHamburgerInner toggle={state} navColor={navColor} />
+          </StyledHamburger>
+        </StyledMenuButton>
+      </StyledMenuContainer>
+      <StyledSligingMenuContainer toggle={state} onClick={toggleMenu}>
         <StyledSlidingMenuBlobContainer>
           <StyledMenuBlob>
-            <Blob size="300px" />
+            <Blob size="300px" icon={logoDark} />
           </StyledMenuBlob>
         </StyledSlidingMenuBlobContainer>
         <StyledSlidingMenuListContainer>
-          <TransitionLink to="/" exit={{ length: 0.5 }} onClick={toggleMenu}>
+          <AniLink
+            cover
+            direction="right"
+            to="/"
+            bg="#ff7500"
+            duration={0.6}
+            onClick={toggleMenu}
+          >
             <h2>
               work<span>.</span>
             </h2>
-          </TransitionLink>
-          <TransitionLink
+          </AniLink>
+          <AniLink
+            cover
+            direction="right"
             to="/about"
-            exit={{ length: 0.5 }}
+            bg="#ff7500"
+            duration={0.6}
             onClick={toggleMenu}
           >
             <h2>
               about<span>.</span>
             </h2>
-          </TransitionLink>
+          </AniLink>
           <h2>
             skills<span>.</span>
           </h2>
@@ -258,8 +247,9 @@ const Nav = ({ title, navColor, children, navHeight }) => {
           </h2>
         </StyledSlidingMenuListContainer>
       </StyledSligingMenuContainer>
+      <StyledBlobContainer state={state}>{children}</StyledBlobContainer>
     </>
   )
 }
 
-export default Nav
+export default Menu

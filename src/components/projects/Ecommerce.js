@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
-const StyledBackgroundImage = styled(Img)`
-  height: 100%;
+const StyledBcgImage = styled(BackgroundImage)`
+  height: 100vh;
 `
 
-const Ecommerce = () => {
+const Ecommerce = ({ children }) => {
   const data = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "imageone.jpg" }) {
@@ -19,7 +19,7 @@ const Ecommerce = () => {
       }
     }
   `)
-  return <StyledBackgroundImage fluid={data.file.childImageSharp.fluid} />
+  return <StyledBcgImage fluid={data.file.childImageSharp.fluid} />
 }
 
 export default Ecommerce

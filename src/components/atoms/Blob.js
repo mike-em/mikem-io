@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import logoImage from '../../images/mm-logo-dark.svg'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const BlobAnimation = props => keyframes`
   0%,
@@ -33,12 +34,23 @@ const BlobAnimation = props => keyframes`
   }
 `
 
+const StyledBlobContainer = styled.div`
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1099;
+  opacity: ${({ state }) => (state ? '0' : '1')};
+  transition: opacity 300ms 200ms ease-in-out;
+  :hover {
+    cursor: pointer;
+  }
+`
+
 const StyledBlob = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  transform: scale(1);
 
   ::before {
     content: '';
@@ -46,8 +58,7 @@ const StyledBlob = styled.div`
     min-height: ${({ size }) => (size ? size : '380px')};
     min-width: ${({ size }) => (size ? size : '380px')};
     background-color: ${({ blobBcg }) => (blobBcg ? blobBcg : '#fff')};
-    background-image: ${({ icon }) =>
-      icon ? `url(${icon})` : `url(${logoImage})`};
+    background-image: ${({ icon }) => (icon ? `url(${icon})` : `null`)};
     background-repeat: no-repeat;
     background-size: ${({ iconSize }) => (iconSize ? iconSize : '170px')};
     background-position: center;

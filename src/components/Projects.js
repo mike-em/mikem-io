@@ -7,16 +7,15 @@ import Ecommerce from './projects/Ecommerce'
 import SocialNetwork from './projects/SocialNetwork'
 import Portfolio from './projects/Portfolio'
 
-const StyledWrapper = styled.div`
+const StyledContainer = styled.div`
   margin: 0 auto;
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: 300ms ease-in-out;
-  overflow: hidden;
 `
 
 const StyledNav = styled.ul`
@@ -89,7 +88,7 @@ const Projects = () => {
   const imageThree = () => setState('three')
 
   return (
-    <StyledWrapper state={state}>
+    <StyledContainer state={state}>
       {state === 'one' && <Ecommerce />}
       {state === 'two' && <SocialNetwork />}
       {state === 'three' && <Portfolio />}
@@ -104,7 +103,7 @@ const Projects = () => {
           portfolio <StyledArrow />
         </StyledNavItem>
       </StyledNav>
-    </StyledWrapper>
+    </StyledContainer>
   )
 }
 
