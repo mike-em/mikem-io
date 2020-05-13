@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { device } from '../utils/device'
 import Hero from './Hero'
 import cards from '../utils/cards'
+import Footer from './Footer'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -141,7 +142,7 @@ const StyledCard = styled.div`
     color: #ffffff;
     letter-spacing: 2px;
     position: absolute;
-    top: 120px;
+    top: 130px;
   }
 `
 
@@ -153,7 +154,7 @@ const StyledCardImg = styled.div`
   background-size: auto 100%;
   background-position: 50% 50%;
   position: absolute;
-  top: 40px;
+  top: 50px;
 `
 
 const About = () => {
@@ -263,6 +264,7 @@ const About = () => {
           })}
         </StyledProcessInnerContainer>
       </StyledProcessContainer>
+      <Footer />
     </StyledContainer>
   )
 }

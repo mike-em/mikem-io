@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import logoDark from '../images/mm-logo-dark.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
@@ -144,7 +144,6 @@ const StyledSlidingMenuListContainer = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  opacity: 1;
 
   a {
     text-decoration: none;
@@ -155,10 +154,10 @@ const StyledSlidingMenuListContainer = styled.div`
   }
 
   h2 {
-    margin-left: 20px;
-    font-size: 60px;
+    margin: 35px 20px;
+    font-size: 6rem;
     font-weight: 800;
-    color: gray;
+    color: #6a6a6a;
     transition: color 200ms ease-in-out;
 
     span {
@@ -181,7 +180,7 @@ const StyledBlobContainer = styled.div`
   bottom: 10px;
   right: 10px;
   z-index: 1099;
-  opacity: ${({ state }) => (state ? '0' : '1')};
+  opacity: ${({ state, isVisible }) => (state || isVisible ? '0' : '1')};
   transition: opacity 300ms 200ms ease-in-out;
   :hover {
     cursor: pointer;
@@ -190,10 +189,22 @@ const StyledBlobContainer = styled.div`
 
 const Menu = ({ navColor, children }) => {
   const [state, setState] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   const toggleMenu = () => {
     setState(!state)
   }
+
+  useEffect(() => {
+    window.addEventListener('scroll', e => {
+      if (document.defaultView.scrollY > 200) {
+        setVisible(true)
+      } else if (document.defaultView.scrollY < 200) {
+        setVisible(false)
+      }
+    })
+  }, [visible])
+
   return (
     <>
       <StyledMenuContainer
@@ -239,15 +250,35 @@ const Menu = ({ navColor, children }) => {
               about<span>.</span>
             </h2>
           </AniLink>
-          <h2>
-            skills<span>.</span>
-          </h2>
-          <h2>
-            contact<span>.</span>
-          </h2>
+          <AniLink
+            cover
+            direction="right"
+            to="/skills"
+            bg="#ff7500"
+            duration={0.6}
+            onClick={toggleMenu}
+          >
+            <h2>
+              skills<span>.</span>
+            </h2>
+          </AniLink>
+          <AniLink
+            cover
+            direction="right"
+            to="/contact"
+            bg="#ff7500"
+            duration={0.6}
+            onClick={toggleMenu}
+          >
+            <h2>
+              contact<span>.</span>
+            </h2>
+          </AniLink>
         </StyledSlidingMenuListContainer>
       </StyledSligingMenuContainer>
-      <StyledBlobContainer state={state}>{children}</StyledBlobContainer>
+      <StyledBlobContainer state={state} isVisible={visible}>
+        {children}
+      </StyledBlobContainer>
     </>
   )
 }

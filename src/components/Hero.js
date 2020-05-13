@@ -29,7 +29,7 @@ const StyledBlobContainer = styled.div`
   margin-left: -70px;
 `
 
-const Hero = ({ title }) => {
+const Hero = ({ title, titleSize }) => {
   const [state, setState] = useState('250px')
 
   useEffect(() => {

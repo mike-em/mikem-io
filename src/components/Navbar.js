@@ -24,15 +24,15 @@ const StyledTitle = styled.h3`
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.bold};
   letter-spacing: 1px;
-  color: white;
+  color: ${({ titleColor }) => (titleColor ? titleColor : '#ffffff')};
   z-index: 990;
 `
 
-const Navbar = ({ title, navColor, children }) => {
+const Navbar = ({ title, navColor, children, titleColor }) => {
   return (
     <StyledContainer>
       <StyledLogo />
-      <StyledTitle>{title}</StyledTitle>
+      <StyledTitle titleColor={titleColor}>{title}</StyledTitle>
       <Menu navColor={navColor}>{children}</Menu>
     </StyledContainer>
   )
