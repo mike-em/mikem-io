@@ -52,7 +52,7 @@ const Footer = () => {
       <StyledSocialMediaContainer>
         {social.map((item, index) => {
           return (
-            <a href={item.url} key={index}>
+            <a href={item.url} key={index} target="blank">
               <StyledSocialIcon socialIcon={item.icon} />
             </a>
           )
@@ -64,7 +64,7 @@ const Footer = () => {
           <span>
             <GoHeart style={{ marginBottom: '-4px' }} />
           </span>{' '}
-          in MK
+          by MikeM
         </p>
       </StyledCopyright>
     </StyledContainer>

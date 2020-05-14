@@ -4,6 +4,9 @@ import { device } from '../utils/device'
 import Hero from './Hero'
 import cards from '../utils/cards'
 import Footer from './Footer'
+import Blob from '../components/atoms/Blob'
+import arrowRight from '../images/arrow-right-primary.svg'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -102,6 +105,22 @@ const StyledServicesList = styled.div`
     li {
       margin: 5px;
     }
+  }
+`
+const StyledLinkContainer = styled(AniLink)`
+  display: flex;
+  align-items: center;
+  width: 85%;
+  height: 80px;
+  justify-self: center;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #ffffff;
+
+  h3 {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    margin: 0;
   }
 `
 
@@ -238,6 +257,10 @@ const About = () => {
             <li>social media</li>
           </ul>
         </StyledServicesList>
+        <StyledLinkContainer cover direction="left" to="/" bg="#ff7500">
+          <h3>check out my projects</h3>
+          <Blob size="60px" icon={arrowRight} iconSize="16px" />
+        </StyledLinkContainer>
       </StyledServicesContainer>
       <StyledProcessContainer>
         <StyledTitle>

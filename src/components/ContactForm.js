@@ -92,6 +92,7 @@ const StyledInputEmail = styled.input`
   height: 35px;
   font-size: ${({ theme }) => theme.fontSize.s};
   border-radius: 5px;
+  padding: 5px;
   &:required {
     box-shadow: none;
   }
@@ -112,7 +113,7 @@ const StyledInputEmail = styled.input`
     value !== '' &&
     css`
       border: 1px solid ${({ theme }) => theme.color.primary};
-      &:focus + ${Label}, &:valid + ${Label}, &:invalid + ${Label} {
+      &:focus + ${Label}, &:valid + ${Label} {
         transform: translate(-5px, -30px) scale(0.8);
         color: ${({ theme }) => theme.color.primary};
       }
@@ -141,8 +142,7 @@ const StyledTextarea = styled.textarea`
 `
 
 const Alternative = styled.p`
-  margin-top: 20px;
-  font-size: ${({ theme }) => theme.fontSize.s};
+  margin-top: 30px;
   letter-spacing: 0.2rem;
   color: ${({ theme }) => theme.color.black};
   @media ${device.xl} {
@@ -164,7 +164,8 @@ const StyledButton = styled.button`
   font-size: 1.8rem;
   font-family: 'Montserrat';
   transition: all 300ms ease-in-out;
-  color: black;
+  color: #ff7500;
+  letter-spacing: 2px;
   /* ${({ isSubmitting }) =>
     isSubmitting &&
     css`
@@ -249,6 +250,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.name}
+                autoComplete="value"
                 required
               />
               <Label>Name</Label>
@@ -260,6 +262,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
+                autoComplete="value"
                 required
               />
               <Label>Email</Label>
