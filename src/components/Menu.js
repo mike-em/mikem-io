@@ -181,7 +181,8 @@ const StyledBlobContainer = styled.div`
   right: 10px;
   z-index: 1099;
   opacity: ${({ state, isVisible }) => (state || isVisible ? '0' : '1')};
-  transition: opacity 300ms 200ms ease-in-out;
+  transform: translateX(${props => (props.isVisible !== true ? '0' : '120px')});
+  transition: all 300ms 200ms ease-in-out;
   :hover {
     cursor: pointer;
   }
@@ -191,19 +192,22 @@ const Menu = ({ navColor, children }) => {
   const [state, setState] = useState(false)
   const [visible, setVisible] = useState(false)
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [visible])
+
   const toggleMenu = () => {
     setState(!state)
   }
 
-  useEffect(() => {
-    window.addEventListener('scroll', e => {
-      if (document.defaultView.scrollY > 200) {
-        setVisible(true)
-      } else if (document.defaultView.scrollY < 200) {
-        setVisible(false)
-      }
-    })
-  }, [visible])
+  const handleScroll = () => {
+    if (document.defaultView.scrollY > 200) {
+      setVisible(true)
+    } else if (document.defaultView.scrollY < 200) {
+      setVisible(false)
+    }
+  }
 
   return (
     <>

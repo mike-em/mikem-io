@@ -7,6 +7,8 @@ import Hero from './Hero'
 import Footer from './Footer'
 import linkIcon from '../images/link-icon-primary.svg'
 import githubIcon from '../images/github-link-primary.svg'
+import arrowIcon from '../images/arrow-right-primary.svg'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -94,6 +96,41 @@ const StyledLink = styled.a`
   background-position: 50% 50%;
 `
 
+const StyledBottomNav = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40vw;
+  height: 30px;
+  margin: 30px 0 -20px 0;
+  color: #ff7500;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`
+
+const StyledButtonNext = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+  :hover {
+    cursor: pointer;
+    img {
+      transition: transform 200ms ease-in-out;
+      transform: translateX(3px);
+    }
+  }
+
+  img {
+    height: 16px;
+    margin-left: 8px;
+  }
+`
+
 const Ecommerce = () => {
   const data = useStaticQuery(graphql`
     {
@@ -152,6 +189,14 @@ const Ecommerce = () => {
           />
         </StyledLinksContainer>
       </StyledDescriptionContainer>
+      <StyledBottomNav>
+        <AniLink cover direction="left" to="/social-network" bg="#ff7500">
+          <StyledButtonNext>
+            <h4>next</h4>
+            <img src={arrowIcon} />
+          </StyledButtonNext>
+        </AniLink>
+      </StyledBottomNav>
       <Footer />
     </StyledContainer>
   )

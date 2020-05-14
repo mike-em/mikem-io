@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { device } from '../utils/device'
+import arrowIcon from '../images/arrow-right-primary.svg'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Img from 'gatsby-image'
 import Hero from './Hero'
 import Footer from './Footer'
@@ -94,6 +96,42 @@ const StyledLink = styled.a`
   background-position: 50% 50%;
 `
 
+const StyledBottomNav = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40vw;
+  height: 30px;
+  margin: 30px 0 -20px 0;
+  color: #ff7500;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+`
+
+const StyledButtonPrev = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+  :hover {
+    cursor: pointer;
+    img {
+      transition: transform 200ms ease-in-out;
+      transform: translateX(-3px) rotate(180deg);
+    }
+  }
+
+  img {
+    height: 16px;
+    margin-right: 8px;
+    transform: rotate(180deg);
+  }
+`
+
 const Photography = () => {
   const data = useStaticQuery(graphql`
     {
@@ -151,6 +189,14 @@ const Photography = () => {
           />
         </StyledLinksContainer>
       </StyledDescriptionContainer>
+      <StyledBottomNav>
+        <AniLink cover direction="right" to="/social-network" bg="#ff7500">
+          <StyledButtonPrev>
+            <img src={arrowIcon} />
+            <h4>prev</h4>
+          </StyledButtonPrev>
+        </AniLink>
+      </StyledBottomNav>
       <Footer />
     </StyledContainer>
   )
