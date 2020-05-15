@@ -7,6 +7,7 @@ import Footer from './Footer'
 import Blob from '../components/atoms/Blob'
 import arrowRight from '../images/arrow-right-primary.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import services from '../utils/services'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ const StyledDescriptionContainer = styled.div`
 const StyledDescriptionLeft = styled.div`
   width: 90vw;
   padding: 30px 30px;
-  border: 2px solid #ff7500;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-left: none;
   border-radius: 0 50px 50px 0;
 
@@ -43,7 +44,7 @@ const StyledDescriptionRight = styled.div`
   justify-self: end;
   width: 90vw;
   padding: 20px 30px;
-  border: 2px solid #ff7500;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-right: none;
   border-radius: 50px 0 0 50px;
 
@@ -60,8 +61,8 @@ const StyledServicesContainer = styled.div`
   display: grid;
   width: 100vw;
   margin-top: 50px;
-  background-color: #ff7500;
-  color: #ffffff;
+  background-color: ${({ theme }) => theme.color.primary};
+  color: ${({ theme }) => theme.color.white};
 `
 
 const StyledTitle = styled.div`
@@ -70,7 +71,7 @@ const StyledTitle = styled.div`
   h2 {
     width: 320px;
     font-size: 9rem;
-    font-weight: 800;
+    font-weight: ${({ theme }) => theme.extraBold};
     letter-spacing: 5px;
     word-break: break-word;
     margin: 0;
@@ -115,7 +116,7 @@ const StyledLinkContainer = styled(AniLink)`
   justify-self: center;
   margin-bottom: 10px;
   text-decoration: none;
-  color: #ffffff;
+  color: ${({ theme }) => theme.color.white};
 
   h3 {
     font-size: 2.8rem;
@@ -130,7 +131,7 @@ const StyledProcessContainer = styled.div`
   margin-top: 30px;
 
   span {
-    color: #ff7500;
+    color: ${({ theme }) => theme.color.primary};
   }
 `
 
@@ -150,7 +151,7 @@ const StyledCard = styled.div`
   align-items: center;
   width: 80%;
   height: 200px;
-  background-color: #ff7500;
+  background-color: ${({ theme }) => theme.color.primary};
   border-radius: 20px;
   position: relative;
 
@@ -158,7 +159,7 @@ const StyledCard = styled.div`
     margin: 0;
     width: 50%;
     text-align: center;
-    color: #ffffff;
+    color: ${({ theme }) => theme.color.white};
     letter-spacing: 2px;
     position: absolute;
     top: 130px;
@@ -224,38 +225,18 @@ const About = () => {
           </p>
         </StyledDescription>
         <StyledServicesList>
-          <h3>idea</h3>
-          <ul>
-            <li>project</li>
-            <li>digital strategy</li>
-            <li>brand strategy</li>
-            <li>content idea</li>
-            <li>project management</li>
-          </ul>
-          <h3>design</h3>
-          <ul>
-            <li>art direction</li>
-            <li>user experience</li>
-            <li>user interface</li>
-            <li>design</li>
-            <li>prototyping</li>
-          </ul>
-          <h3>development</h3>
-          <ul>
-            <li>technology choice</li>
-            <li>user experience</li>
-            <li>user interface</li>
-            <li>design</li>
-            <li>prototyping</li>
-          </ul>
-          <h3>marketing</h3>
-          <ul>
-            <li>SEO</li>
-            <li>advertising campaign</li>
-            <li>marketing & paid media</li>
-            <li>creative</li>
-            <li>social media</li>
-          </ul>
+          {services.map((item, index) => {
+            return (
+              <div key={index}>
+                <h3>{item.title}</h3>
+                <ul>
+                  {item.list.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })}
         </StyledServicesList>
         <StyledLinkContainer cover direction="left" to="/" bg="#ff7500">
           <h3>check out my projects</h3>

@@ -1,17 +1,17 @@
 export const theme = {
   color: {
     primary: 'hsl(28, 100%, 50%)',
-    grey: 'hsl(0, 0%, 92%)',
-    lightGrey: 'hsl(0, 0%, 98%)',
-    darkGrey: 'hsl(0, 0%, 25%)',
+    lightGrey: 'hsl(0, 0%, 95%)',
+    grey: 'hsl(0, 0%, 35%)',
+    darkGrey: 'hsl(0, 0%, 20%)',
     black: 'hsl(0, 0%, 10%)',
     white: 'hsl(0, 0%, 100%)',
   },
   light: 300,
   medium: 400,
   bold: 700,
+  extraBold: 800,
   fontSize: {
-    xxs: '1.2rem',
     xs: '1.6rem',
     s: '1.8rem',
     m: '2rem',
@@ -19,5 +19,7 @@ export const theme = {
     xl: '3rem',
     xxl: '4rem',
     xxxl: '6rem',
+    jumbo: '8rem',
+    jumboX: '10rem',
   },
 }

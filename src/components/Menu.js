@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import logoDark from '../images/mm-logo-dark.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { device } from '../utils/device'
 import Blob from '../components/atoms/Blob'
+import menuList from '../utils/menu' // menu items array
+import { device } from '../utils/device'
 
 const StyledMenuContainer = styled.div`
   display: flex;
@@ -13,6 +14,10 @@ const StyledMenuContainer = styled.div`
   color: ${({ state }) => (state ? 'black' : 'white')};
   transition: color 300ms 200ms ease-in-out;
   overflow: hidden;
+
+  p {
+    display: none;
+  }
 
   ${({ navColor }) =>
     navColor &&
@@ -140,7 +145,7 @@ const StyledSlidingMenuListContainer = styled.div`
   justify-content: center;
   width: 100vw;
   min-height: 100vh;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.white};
   position: fixed;
   top: 0;
   right: 0;
@@ -154,18 +159,24 @@ const StyledSlidingMenuListContainer = styled.div`
   }
 
   h2 {
-    margin: 35px 20px;
+    margin: 20px 20px;
     font-size: 6rem;
-    font-weight: 800;
-    color: #6a6a6a;
+    letter-spacing: 2px;
+    font-weight: ${({ theme }) => theme.extraBold};
+    color: ${({ theme }) => theme.color.grey};
     transition: color 200ms ease-in-out;
 
+    @media ${device.smallMobile} {
+      margin: 40px 20px;
+    }
+
     span {
-      margin-left: 2px;
+      margin-left: 4px;
+      transition: color 200ms ease-in-out;
     }
 
     :hover {
-      color: black;
+      color: ${({ theme }) => theme.color.black};
       cursor: pointer;
 
       span {
@@ -191,6 +202,8 @@ const StyledBlobContainer = styled.div`
 const Menu = ({ navColor, children }) => {
   const [state, setState] = useState(false)
   const [visible, setVisible] = useState(false)
+
+  // function hiding contact link on scroll
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -230,54 +243,22 @@ const Menu = ({ navColor, children }) => {
           </StyledMenuBlob>
         </StyledSlidingMenuBlobContainer>
         <StyledSlidingMenuListContainer>
-          <AniLink
-            cover
-            direction="right"
-            to="/"
-            bg="#ff7500"
-            duration={0.6}
-            onClick={toggleMenu}
-          >
-            <h2>
-              work<span>.</span>
-            </h2>
-          </AniLink>
-          <AniLink
-            cover
-            direction="right"
-            to="/about"
-            bg="#ff7500"
-            duration={0.6}
-            onClick={toggleMenu}
-          >
-            <h2>
-              about<span>.</span>
-            </h2>
-          </AniLink>
-          <AniLink
-            cover
-            direction="right"
-            to="/skills"
-            bg="#ff7500"
-            duration={0.6}
-            onClick={toggleMenu}
-          >
-            <h2>
-              skills<span>.</span>
-            </h2>
-          </AniLink>
-          <AniLink
-            cover
-            direction="right"
-            to="/contact"
-            bg="#ff7500"
-            duration={0.6}
-            onClick={toggleMenu}
-          >
-            <h2>
-              contact<span>.</span>
-            </h2>
-          </AniLink>
+          {menuList.map((item, index) => (
+            <AniLink
+              key={index}
+              cover
+              direction="right"
+              to={item.url}
+              bg="#ff7500"
+              duration={0.6}
+              onClick={toggleMenu}
+            >
+              <h2>
+                {item.text}
+                <span>.</span>
+              </h2>
+            </AniLink>
+          ))}
         </StyledSlidingMenuListContainer>
       </StyledSligingMenuContainer>
       <StyledBlobContainer state={state} isVisible={visible}>

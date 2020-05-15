@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { IoIosArrowForward } from 'react-icons/io'
 import { device } from '../utils/device'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-
 import Ecommerce from './projects/Ecommerce'
 import SocialNetwork from './projects/SocialNetwork'
 import Portfolio from './projects/Portfolio'
-
-import imageOne from '../images/imageone.jpg'
+import arrowRight from '../images/arrow-right-white.svg'
+import projects from '../utils/projectMenu' // project menu array
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -29,7 +27,7 @@ const StyledNav = styled.ul`
   list-style: none;
   position: absolute;
   bottom: 0;
-  margin-bottom: 140px;
+  margin-bottom: 120px;
   padding-left: 10px;
 
   a {
@@ -42,16 +40,16 @@ const StyledNav = styled.ul`
   }
 `
 
-const StyledArrow = styled(IoIosArrowForward)`
+const StyledArrow = styled.img`
   margin: 0 0 -5px 20px;
   padding: 0;
-  font-size: 30px;
+  height: 2rem;
   opacity: 0;
   transform: translateX(-35px);
-  transition: 200ms ease-in-out;
+  transition: 300ms ease-in-out;
 
   @media ${device.tablet} {
-    font-size: 50px;
+    font-size: 5rem;
     margin-bottom: -15px;
   }
 `
@@ -64,12 +62,16 @@ const StyledNavItem = styled.li`
   cursor: pointer;
   opacity: 0.7;
   transition: 200ms ease-in-out;
-  font-size: 40px;
+  font-size: 3.3rem;
   font-weight: bold;
   text-align: left;
 
+  @media ${device.smallMobile} {
+    font-size: 4.2rem;
+  }
+
   @media ${device.tablet} {
-    font-size: 80px;
+    font-size: 8rem;
   }
 
   :hover {
@@ -90,73 +92,28 @@ const StyledNavItem = styled.li`
 const Projects = () => {
   const [state, setState] = useState('one')
 
-  const imageOne = () => setState('one')
-  const imageTwo = () => setState('two')
-  const imageThree = () => setState('three')
-
   return (
     <StyledContainer state={state}>
       {state === 'one' && <Ecommerce />}
       {state === 'two' && <SocialNetwork />}
       {state === 'three' && <Portfolio />}
       <StyledNav>
-        <AniLink
-          cover
-          to="/ecommerce"
-          direction="left"
-          bg="#ff7500"
-          // bg="
-          //   url(https://images.unsplash.com/photo-1532289735437-a07b8f3240e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)
-          //   center / cover /* position / size */
-          //         no-repeat                /* repeat */
-          //         fixed                    /* attachment */
-          //         padding-box              /* origin */
-          //         content-box              /* clip */
-          //         white                     /* color */
-          // "
-        >
-          <StyledNavItem onMouseEnter={imageOne} state={state}>
-            ecommerce <StyledArrow />
-          </StyledNavItem>
-        </AniLink>
-        <AniLink
-          cover
-          to="/social-network"
-          direction="left"
-          bg="#ff7500"
-          // bg="
-          //   url(https://images.unsplash.com/photo-1519336305162-4b6ed6b6fc83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)
-          //   center / cover /* position / size */
-          //         no-repeat                /* repeat */
-          //         fixed                    /* attachment */
-          //         padding-box              /* origin */
-          //         content-box              /* clip */
-          //         white                     /* color */
-          // "
-        >
-          <StyledNavItem onMouseEnter={imageTwo} state={state}>
-            social network <StyledArrow />
-          </StyledNavItem>
-        </AniLink>
-        <AniLink
-          cover
-          to="/photography"
-          direction="left"
-          bg="#ff7500"
-          // bg="
-          //   url(https://images.unsplash.com/photo-1540116771367-4b6be7945fed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)
-          //   center / cover /* position / size */
-          //         no-repeat                /* repeat */
-          //         fixed                    /* attachment */
-          //         padding-box              /* origin */
-          //         content-box              /* clip */
-          //         white                     /* color */
-          // "
-        >
-          <StyledNavItem onMouseEnter={imageThree} state={state}>
-            portfolio <StyledArrow />
-          </StyledNavItem>
-        </AniLink>
+        {projects.map((item, index) => (
+          <AniLink
+            cover
+            to={item.url}
+            direction="left"
+            bg="#ff7500"
+            key={index}
+          >
+            <StyledNavItem
+              onMouseEnter={() => setState(item.image)}
+              state={state}
+            >
+              {item.text} <StyledArrow src={arrowRight} />
+            </StyledNavItem>
+          </AniLink>
+        ))}
       </StyledNav>
     </StyledContainer>
   )

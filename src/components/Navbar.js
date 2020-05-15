@@ -25,8 +25,10 @@ const StyledLogo = styled(AniLink)`
 const StyledTitle = styled.h3`
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.bold};
+  font-size: ${({ theme }) => theme.fontSize.s};
   letter-spacing: 1px;
-  color: ${({ titleColor }) => (titleColor ? titleColor : '#ffffff')};
+  color: ${({ titleColor, theme }) =>
+    titleColor ? titleColor : theme.color.white};
   z-index: 990;
 `
 
