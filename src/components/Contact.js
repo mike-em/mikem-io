@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { device } from '../utils/device'
 import ContactForm from './ContactForm'
@@ -13,14 +13,19 @@ const StyledContainer = styled.div`
 `
 
 const StyledTitle = styled.h1`
-  font-size: 4rem;
+  font-size: 3.3rem;
   width: 95%;
   text-align: center;
   letter-spacing: 3px;
   margin: 20px 0;
+  color: ${({ theme }) => theme.color.black};
+
+  @media ${device.smallMobile} {
+    font-size: 4rem;
+  }
 
   span {
-    color: #ff7500;
+    color: ${({ theme }) => theme.color.primary};
   }
 `
 

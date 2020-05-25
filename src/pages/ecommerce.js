@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import MainLayout from '../components/MainLayout'
 import mailLight from '../images/mail-icon-light.svg'
 import Blob from '../components/atoms/Blob'
-import Ecommerce from '../components/Ecommerce'
+import Project from '../components/Project'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const EcommercePage = () => {
@@ -19,7 +19,7 @@ const EcommercePage = () => {
           />
         </AniLink>
       </Navbar>
-      <Ecommerce />
+      <Project title="ecom merce" pageContext="projectOne" />
     </MainLayout>
   )
 }

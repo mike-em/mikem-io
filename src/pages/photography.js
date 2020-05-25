@@ -3,8 +3,8 @@ import Navbar from '../components/Navbar'
 import MainLayout from '../components/MainLayout'
 import mailLight from '../images/mail-icon-light.svg'
 import Blob from '../components/atoms/Blob'
-import Photography from '../components/Photography'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import Project from '../components/Project'
 
 const PhotoghraphyPage = () => {
   return (
@@ -19,7 +19,7 @@ const PhotoghraphyPage = () => {
           />
         </AniLink>
       </Navbar>
-      <Photography />
+      <Project title="port folio" pageContext="projectThree" />
     </MainLayout>
   )
 }

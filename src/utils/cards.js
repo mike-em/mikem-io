@@ -1,5 +1,5 @@
 import meeting from '../images/cards/meeting.svg'
-import brain from '../images/cards/brain.svg'
+import mindMap from '../images/cards/mind-map.svg'
 import design from '../images/cards/design.svg'
 import development from '../images/cards/development.svg'
 import deploy from '../images/cards/deploy.svg'
@@ -11,8 +11,8 @@ export default [
     image: meeting,
   },
   {
-    title: 'brain storming',
-    image: brain,
+    title: 'planning & analysis',
+    image: mindMap,
   },
   {
     title: 'design',

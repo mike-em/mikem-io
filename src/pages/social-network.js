@@ -3,8 +3,8 @@ import Navbar from '../components/Navbar'
 import MainLayout from '../components/MainLayout'
 import mailLight from '../images/mail-icon-light.svg'
 import Blob from '../components/atoms/Blob'
-import SocialNetwork from '../components/SocialNetwork'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import Project from '../components/Project'
 
 const SocialNetworkPage = () => {
   return (
@@ -19,7 +19,7 @@ const SocialNetworkPage = () => {
           />
         </AniLink>
       </Navbar>
-      <SocialNetwork />
+      <Project title="social net work" pageContext="projectTwo" />
     </MainLayout>
   )
 }

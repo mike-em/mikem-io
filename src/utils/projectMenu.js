@@ -1,5 +1,3 @@
-import { setNestedObjectValues } from 'formik'
-
 export default [
   {
     text: 'ecommerce',

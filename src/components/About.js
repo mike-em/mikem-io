@@ -69,12 +69,17 @@ const StyledTitle = styled.div`
   justify-self: center;
   width: 95vw;
   h2 {
-    width: 320px;
-    font-size: 9rem;
+    width: 280px;
+    font-size: 7rem;
     font-weight: ${({ theme }) => theme.extraBold};
     letter-spacing: 5px;
     word-break: break-word;
     margin: 0;
+
+    @media ${device.smallMobile} {
+      width: 320px;
+      font-size: 8.8rem;
+    }
 
     span {
       margin-left: 10px;
@@ -119,9 +124,13 @@ const StyledLinkContainer = styled(AniLink)`
   color: ${({ theme }) => theme.color.white};
 
   h3 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     letter-spacing: 3px;
     margin: 0;
+
+    @media ${device.smallMobile} {
+      font-size: 2.8rem;
+    }
   }
 `
 
@@ -157,7 +166,7 @@ const StyledCard = styled.div`
 
   h3 {
     margin: 0;
-    width: 50%;
+    width: 65%;
     text-align: center;
     color: ${({ theme }) => theme.color.white};
     letter-spacing: 2px;

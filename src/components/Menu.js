@@ -59,7 +59,7 @@ const StyledHamburgerInner = styled.span`
   ${({ navColor }) =>
     navColor &&
     css`
-      background-color: black;
+      background-color: ${({ theme }) => theme.color.black};
     `}
   ${({ toggle }) =>
     toggle &&
@@ -71,7 +71,8 @@ const StyledHamburgerInner = styled.span`
     content: '';
     width: 100%;
     height: 3px;
-    background-color: ${({ toggle }) => (toggle ? 'black' : 'white')};
+    background-color: ${({ toggle, theme }) =>
+      toggle ? theme.color.black : theme.color.white};
     position: absolute;
     left: 0;
     transition: all 200ms 200ms ease-in-out;
@@ -79,7 +80,7 @@ const StyledHamburgerInner = styled.span`
     ${({ navColor }) =>
       navColor &&
       css`
-        background-color: black;
+        background-color: ${({ theme }) => theme.color.black};
       `}
   }
   &::before {

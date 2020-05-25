@@ -134,7 +134,14 @@ const StyledButtonNext = styled.div`
 const Ecommerce = () => {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "imageone.jpg" }) {
+      imageOne: file(relativePath: { eq: "imageone.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+      imageTwo: file(relativePath: { eq: "imagetwo.jpg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -160,7 +167,7 @@ const Ecommerce = () => {
           </p>
         </StyledDescriptionRight>
       </StyledDescriptionContainer>
-      <StyledImageContainer fluid={data.file.childImageSharp.fluid} />
+      <StyledImageContainer fluid={data.imageOne.childImageSharp.fluid} />
       <StyledDescriptionContainer>
         <StyledDescriptionLeft>
           <h2>

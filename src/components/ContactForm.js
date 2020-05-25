@@ -156,37 +156,36 @@ const AltEmail = styled.a`
 `
 
 const StyledButton = styled.button`
-  width: 150px;
-  height: 48px;
-  border: 1px solid #ff7500;
+  width: 130px;
+  height: 42px;
+  border: 1px solid ${({ theme }) => theme.color.primary};
   border-radius: 10px;
   background-color: transparent;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-family: 'Montserrat';
   transition: all 300ms ease-in-out;
-  color: #ff7500;
+  color: ${({ theme }) => theme.color.primary};
   letter-spacing: 2px;
-  /* ${({ isSubmitting }) =>
-    isSubmitting &&
-    css`
-      &:hover {
-        background-color: ${({ theme }) => theme.color.primary};
-      }
-    `} */
+
+  @media ${device.smallMobile} {
+    width: 150px;
+    height: 48px;
+    font-size: 1.8rem;
+  }
 
   :hover {
-    background-color: #ff7500;
-    border: 1px solid #ff7500;
-    color: #ffffff;
+    background-color: ${({ theme }) => theme.color.primary};
+    border: 1px solid ${({ theme }) => theme.color.primary};
+    color: ${({ theme }) => theme.color.white};
   }
 `
 
 const StyledButtonSuccess = styled(StyledButton)`
   position: absolute;
-  background-color: lightgreen;
-  border: 1px solid lightgreen;
+  background-color: #4bb543;
+  border: 1px solid #4bb543;
   &:hover {
-    background-color: lightgreen;
+    background-color: #4bb543;
   }
   ${({ isvisible }) =>
     isvisible &&

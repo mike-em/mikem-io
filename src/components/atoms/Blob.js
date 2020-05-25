@@ -1,7 +1,5 @@
 import React from 'react'
-import styled, { keyframes, css } from 'styled-components'
-import logoImage from '../../images/mm-logo-dark.svg'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import styled, { keyframes } from 'styled-components'
 
 const BlobAnimation = props => keyframes`
   0%,
