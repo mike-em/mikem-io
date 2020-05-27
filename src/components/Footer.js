@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { GoHeart } from 'react-icons/go'
 import social from '../utils/social'
+import { device } from '../utils/device'
 
 const StyledContainer = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const StyledContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 110px;
   margin-top: 50px;
   background-color: #ff7500;
 `
@@ -19,12 +20,24 @@ const StyledSocialMediaContainer = styled.div`
   justify-content: space-between;
 
   width: 80%;
+
+  @media ${device.tablet} {
+    width: 50%;
+  }
+
+  @media ${device.laptop} {
+    width: 35%;
+  }
+
+  @media ${device.desktop} {
+    width: 25%;
+  }
 `
 
 const StyledSocialIcon = styled.div`
   width: 50px;
   height: 50px;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 50%;
   background-color: #ffffff;
   background-image: ${({ socialIcon }) => socialIcon && `url(${socialIcon})`};

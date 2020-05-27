@@ -17,6 +17,10 @@ const StyledMenuContainer = styled.div`
 
   p {
     display: none;
+
+    @media ${device.tablet} {
+      display: block;
+    }
   }
 
   ${({ navColor }) =>
@@ -171,6 +175,18 @@ const StyledSlidingMenuListContainer = styled.div`
       margin: 40px 20px;
     }
 
+    @media ${device.tablet} {
+      font-size: 7rem;
+    }
+
+    @media ${device.laptop} {
+      font-size: 9rem;
+    }
+
+    @media ${device.height} {
+      margin: 20px;
+    }
+
     span {
       margin-left: 4px;
       transition: color 200ms ease-in-out;
@@ -240,7 +256,7 @@ const Menu = ({ navColor, children }) => {
       <StyledSligingMenuContainer toggle={state} onClick={toggleMenu}>
         <StyledSlidingMenuBlobContainer>
           <StyledMenuBlob>
-            <Blob size="300px" icon={logoDark} />
+            <Blob size="320px" icon={logoDark} />
           </StyledMenuBlob>
         </StyledSlidingMenuBlobContainer>
         <StyledSlidingMenuListContainer>

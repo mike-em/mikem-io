@@ -14,4 +14,5 @@ export const device = {
   laptop: `(min-width: ${size.laptop})`,
   desktop: `(min-width: ${size.desktop})`,
   xl: `(min-width: ${size.fourK})`,
+  height: `(max-height: 650px)`,
 }

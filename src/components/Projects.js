@@ -38,19 +38,23 @@ const StyledNav = styled.ul`
     height: 50%;
     margin-bottom: 40px;
   }
+
+  @media ${device.desktop} {
+    height: 60%;
+  }
 `
 
 const StyledArrow = styled.img`
-  margin: 0 0 -5px 20px;
+  margin: 0 0 -8px 20px;
   padding: 0;
-  height: 2rem;
+  height: 2.2rem;
   opacity: 0;
   transform: translateX(-35px);
   transition: 300ms ease-in-out;
 
   @media ${device.tablet} {
-    font-size: 5rem;
-    margin-bottom: -15px;
+    height: 4rem;
+    margin-bottom: -18px;
   }
 `
 
@@ -71,7 +75,7 @@ const StyledNavItem = styled.li`
   }
 
   @media ${device.tablet} {
-    font-size: 8rem;
+    font-size: 9rem;
   }
 
   :hover {
@@ -83,8 +87,12 @@ const StyledNavItem = styled.li`
     }
 
     ${StyledArrow} {
-      transform: translateX(0);
+      transform: translateX(10px);
       opacity: 1;
+
+      @media ${device.tablet} {
+        transform: translateX(20px);
+      }
     }
   }
 `

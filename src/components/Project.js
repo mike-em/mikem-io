@@ -24,23 +24,51 @@ const StyledDescriptionContainer = styled.div`
   grid-template-rows: 1fr;
   grid-gap: 30px;
   margin-top: 50px;
+
+  @media ${device.desktop} {
+    width: 80vw;
+  }
+
+  @media ${device.xl} {
+    width: 60vw;
+  }
 `
 
 const StyledDescriptionLeft = styled.div`
   width: 90vw;
   padding: 30px 30px;
-  border: 2px solid #ff7500;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-left: none;
   border-radius: 0 50px 50px 0;
 
-  background-repeat: no-repeat;
-  background-size: 120%;
-  background-position: 100px 60px;
+  @media ${device.tablet} {
+    width: 60vw;
+  }
+
+  @media ${device.laptop} {
+    width: 55vw;
+    padding: 50px 80px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding: 50px 120px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+  }
 
   h2 {
     margin-top: 0;
     letter-spacing: 2px;
     font-size: 3rem;
+
+    @media ${device.tablet} {
+      font-size: 4.5rem;
+    }
     span {
       color: #ff7500;
       margin-left: 3px;
@@ -53,6 +81,11 @@ const StyledDescriptionLeft = styled.div`
     li {
       font-size: 1.8rem;
       letter-spacing: 1px;
+
+      @media ${device.tablet} {
+        font-size: 2.2rem;
+        margin-top: 5px;
+      }
     }
   }
 `
@@ -60,19 +93,52 @@ const StyledDescriptionLeft = styled.div`
 const StyledDescriptionRight = styled.div`
   justify-self: end;
   width: 90vw;
-  padding: 20px 30px;
+  padding: 30px 30px;
   border: 2px solid #ff7500;
   border-right: none;
   border-radius: 50px 0 0 50px;
 
+  @media ${device.tablet} {
+    width: 60vw;
+    padding: 30px 50px;
+  }
+
+  @media ${device.laptop} {
+    width: 55vw;
+    padding: 50px 80px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding: 50px 120px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+  }
+
   p {
     margin: 0;
+
+    @media ${device.laptop} {
+      line-height: 2.2rem;
+    }
   }
 `
 const StyledImageContainer = styled(Img)`
   margin-top: 50px;
   width: 100vw;
   height: 500px;
+
+  @media ${device.laptop} {
+    height: 600px;
+  }
+
+  @media ${device.laptop} {
+    height: 700px;
+  }
 `
 
 const StyledLinksContainer = styled.div`
@@ -80,7 +146,7 @@ const StyledLinksContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   justify-self: end;
-  margin: 20px 20px 0 0;
+  margin: 20px 50px 0 0;
   padding: 0 30px;
   width: 200px;
   height: 80px;
@@ -95,6 +161,11 @@ const StyledLink = styled.a`
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: 50% 50%;
+  transition: transform 200ms ease-in-out;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `
 
 const StyledBottomNav = styled.div`
@@ -104,7 +175,11 @@ const StyledBottomNav = styled.div`
   width: 40vw;
   height: 30px;
   margin: 30px 0 -20px 0;
-  color: #ff7500;
+  color: ${({ theme }) => theme.color.primary};
+
+  @media ${device.laptop} {
+    font-size: 2rem;
+  }
 
   a {
     text-decoration: none;

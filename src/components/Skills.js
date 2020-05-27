@@ -21,11 +21,19 @@ const StyledDescriptionContainer = styled.div`
   grid-gap: 30px;
   margin-top: 50px;
   color: ${({ theme }) => theme.color.black};
+
+  @media ${device.desktop} {
+    width: 80vw;
+  }
+
+  @media ${device.xl} {
+    width: 60vw;
+  }
 `
 
 const StyledDescriptionLeft = styled.div`
   width: 90vw;
-  padding: 30px 30px;
+  padding: 30px;
   border: 2px solid #ff7500;
   border-left: none;
   border-radius: 0 50px 50px 0;
@@ -34,10 +42,36 @@ const StyledDescriptionLeft = styled.div`
   background-size: 120%;
   background-position: 100px 60px;
 
+  @media ${device.tablet} {
+    width: 60vw;
+  }
+
+  @media ${device.laptop} {
+    width: 55vw;
+    padding-left: 80px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding-left: 120px;
+    background-size: 100%;
+    background-position: 220px 60px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+  }
+
   h2 {
     margin-top: 0;
     letter-spacing: 2px;
     font-size: 4rem;
+
+    @media ${device.tablet} {
+      font-size: 4.5rem;
+    }
     span {
       color: ${({ theme }) => theme.color.primary};
       margin-left: 3px;
@@ -50,6 +84,11 @@ const StyledDescriptionLeft = styled.div`
     li {
       font-size: 1.8rem;
       letter-spacing: 1px;
+
+      @media ${device.tablet} {
+        font-size: 2.2rem;
+        margin-top: 5px;
+      }
     }
   }
 `
@@ -57,7 +96,7 @@ const StyledDescriptionLeft = styled.div`
 const StyledDescriptionRight = styled.div`
   justify-self: end;
   width: 90vw;
-  padding: 20px 30px;
+  padding: 30px;
   border: 2px solid ${({ theme }) => theme.color.primary};
   border-right: none;
   border-radius: 50px 0 0 50px;
@@ -66,13 +105,40 @@ const StyledDescriptionRight = styled.div`
   background-size: 120%;
   background-position: 100px 60px;
 
+  @media ${device.tablet} {
+    width: 60vw;
+  }
+
+  @media ${device.laptop} {
+    width: 55vw;
+    padding-left: 80px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding-left: 120px;
+    background-size: 100%;
+    background-position: 220px 60px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+  }
+
   h2 {
     margin-top: 0;
     letter-spacing: 2px;
     font-size: 3.5rem;
+    width: 400px;
 
     @media ${device.smallMobile} {
       font-size: 4rem;
+    }
+
+    @media ${device.tablet} {
+      font-size: 4.5rem;
     }
     span {
       color: ${({ theme }) => theme.color.primary};
@@ -86,6 +152,11 @@ const StyledDescriptionRight = styled.div`
     li {
       font-size: 1.8rem;
       letter-spacing: 1px;
+
+      @media ${device.tablet} {
+        font-size: 2.2rem;
+        margin-top: 5px;
+      }
     }
   }
 `
@@ -106,7 +177,9 @@ const Skills = () => {
             <li>React</li>
             <li>Gatsby</li>
             <li>NextJS</li>
-            <li>CSS frameworks</li>
+            <li>Material UI</li>
+            <li>Bootstrap</li>
+            <li>Bulma</li>
           </ul>
         </StyledDescriptionLeft>
         <StyledDescriptionRight bcgImage={nodeIcon}>

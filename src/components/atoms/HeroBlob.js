@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import { device } from '../../utils/device'
 
 const BlobAnimation = props => keyframes`
   0%,
@@ -41,24 +42,26 @@ const StyledBlob = styled.div`
   ::before {
     content: '';
     display: block;
-    min-height: ${({ size }) => (size ? size : '380px')};
-    min-width: ${({ size }) => (size ? size : '380px')};
-    background-color: ${({ blobBcg }) => (blobBcg ? blobBcg : '#fff')};
-    background-image: ${({ icon }) => (icon ? `url(${icon})` : `null`)};
-    background-repeat: no-repeat;
-    background-size: ${({ iconSize }) => (iconSize ? iconSize : '170px')};
-    background-position: center;
+    min-height: 250px;
+    min-width: 250px;
+    background-color: ${({ theme }) => theme.color.primary};
     transform-origin: 50% 50%;
     animation: ${p => BlobAnimation(p)} 10s linear infinite;
+
+    @media ${device.tablet} {
+      min-height: 300px;
+      min-width: 300px;
+    }
+
+    @media ${device.xl} {
+      min-height: 400px;
+      min-width: 400px;
+    }
   }
 `
 
-const Blob = ({ children, blobBcg, icon, size, iconSize }) => {
-  return (
-    <StyledBlob blobBcg={blobBcg} icon={icon} size={size} iconSize={iconSize}>
-      {children}
-    </StyledBlob>
-  )
+const HeroBlob = () => {
+  return <StyledBlob />
 }
 
-export default Blob
+export default HeroBlob

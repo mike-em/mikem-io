@@ -22,6 +22,15 @@ const StyledDescriptionContainer = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 30px;
   margin-top: 50px;
+
+  @media ${device.desktop} {
+    width: 80vw;
+    grid-gap: 60px;
+  }
+
+  @media ${device.xl} {
+    width: 60vw;
+  }
 `
 
 const StyledDescriptionLeft = styled.div`
@@ -31,29 +40,89 @@ const StyledDescriptionLeft = styled.div`
   border-left: none;
   border-radius: 0 50px 50px 0;
 
+  @media ${device.tablet} {
+    width: 60vw;
+    padding: 30px 50px;
+  }
+
+  @media ${device.laptop} {
+    width: 55vw;
+    padding: 50px 90px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding: 50px 120px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+    padding: 50px 120px;
+  }
+
   h2 {
     margin-top: 0;
+
+    @media ${device.laptop} {
+      font-size: 3rem;
+    }
   }
 
   p {
     margin: 0;
+
+    @media ${device.laptop} {
+      line-height: 2.2rem;
+    }
   }
 `
 
 const StyledDescriptionRight = styled.div`
   justify-self: end;
   width: 90vw;
-  padding: 20px 30px;
+  padding: 30px 30px;
   border: 2px solid ${({ theme }) => theme.color.primary};
   border-right: none;
   border-radius: 50px 0 0 50px;
 
+  @media ${device.tablet} {
+    width: 60vw;
+    padding: 30px 50px;
+  }
+
+  @media ${device.laptop} {
+    width: 55vw;
+    padding: 50px 90px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding: 50px 120px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+    padding: 50px 120px;
+  }
+
   h2 {
     margin-top: 0;
+
+    @media ${device.laptop} {
+      font-size: 3rem;
+    }
   }
 
   p {
     margin: 0;
+
+    @media ${device.laptop} {
+      line-height: 2.2rem;
+    }
   }
 `
 
@@ -61,6 +130,7 @@ const StyledServicesContainer = styled.div`
   display: grid;
   width: 100vw;
   margin-top: 50px;
+  padding: 30px 0;
   background-color: ${({ theme }) => theme.color.primary};
   color: ${({ theme }) => theme.color.white};
 `
@@ -68,6 +138,18 @@ const StyledServicesContainer = styled.div`
 const StyledTitle = styled.div`
   justify-self: center;
   width: 95vw;
+
+  @media ${device.tablet} {
+    width: 90vw;
+  }
+
+  @media ${device.laptop} {
+    width: 80vw;
+  }
+
+  @media ${device.xl} {
+    width: 60vw;
+  }
   h2 {
     width: 280px;
     font-size: 7rem;
@@ -81,20 +163,92 @@ const StyledTitle = styled.div`
       font-size: 8.8rem;
     }
 
+    @media ${device.tablet} {
+      width: 380px;
+      font-size: 10rem;
+    }
+
+    @media ${device.laptop} {
+      width: 420px;
+      font-size: 12rem;
+    }
+
+    @media ${device.xl} {
+      width: 450px;
+      font-size: 13rem;
+    }
+
     span {
       margin-left: 10px;
     }
   }
 `
 
-const StyledDescription = styled.div`
+const StyledServiceDescription = styled.div`
   width: 95vw;
   justify-self: center;
+  margin-bottom: 50px;
+
+  @media ${device.tablet} {
+    width: 50vw;
+    justify-self: end;
+    margin-right: 50px;
+  }
+
+  @media ${device.laptop} {
+    width: 50vw;
+    justify-self: end;
+    margin-right: 80px;
+  }
+
+  @media ${device.desktop} {
+    width: 40vw;
+    justify-self: end;
+    margin-right: 200px;
+  }
+
+  @media ${device.xl} {
+    width: 30vw;
+    justify-self: end;
+    margin-right: 400px;
+  }
 `
+
+const StyledProcessDescription = styled.div`
+  width: 95vw;
+  justify-self: center;
+  margin-bottom: 50px;
+
+  @media ${device.tablet} {
+    width: 80vw;
+  }
+
+  @media ${device.xl} {
+    width: 60vw;
+  }
+`
+
 const StyledServicesList = styled.div`
   display: grid;
+  grid-gap: 20px;
   width: 95vw;
   justify-self: center;
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+    width: 90vw;
+    justify-self: end;
+    grid-gap: 40px;
+  }
+
+  @media ${device.laptop} {
+    width: 80vw;
+    grid-gap: 80px;
+  }
+
+  @media ${device.xl} {
+    width: 70vw;
+  }
 
   h3 {
     font-size: 3.5rem;
@@ -123,6 +277,20 @@ const StyledLinkContainer = styled(AniLink)`
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
 
+  @media ${device.tablet} {
+    width: 320px;
+    justify-self: flex-end;
+    margin: 50px 50px 0 0;
+  }
+
+  @media ${device.laptop} {
+    margin: 50px 80px 0 0;
+  }
+
+  @media ${device.xl} {
+    margin: 50px 160px 0 0;
+  }
+
   h3 {
     font-size: 2.4rem;
     letter-spacing: 3px;
@@ -139,6 +307,10 @@ const StyledProcessContainer = styled.div`
   width: 100vw;
   margin-top: 30px;
 
+  @media ${device.tablet} {
+    width: 90vw;
+  }
+
   span {
     color: ${({ theme }) => theme.color.primary};
   }
@@ -151,6 +323,26 @@ const StyledProcessInnerContainer = styled.div`
   width: 95vw;
   justify-items: center;
   justify-self: center;
+
+  @media ${device.tablet} {
+    grid-template-columns: 1fr 1fr;
+    width: 90vw;
+    grid-gap: 80px;
+  }
+
+  @media ${device.laptop} {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80vw;
+    grid-gap: 50px;
+  }
+
+  @media ${device.desktop} {
+    grid-gap: 80px;
+  }
+
+  @media ${device.xl} {
+    width: 60vw;
+  }
 `
 
 const StyledCard = styled.div`
@@ -163,6 +355,14 @@ const StyledCard = styled.div`
   background-color: ${({ theme }) => theme.color.primary};
   border-radius: 20px;
   position: relative;
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
+
+  @media ${device.laptop} {
+    width: 100%;
+  }
 
   h3 {
     margin: 0;
@@ -194,28 +394,27 @@ const About = () => {
         <StyledDescriptionLeft>
           <h2>Who Am I</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            dolor et esse, est nemo quis vero debitis vel rem maiores itaque
-            quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate
-            ullam!
+            I'm Michael, a Full Stack software engineer. I focus on building
+            high quality websites and web applications. I always stay on top of
+            latest technologies to make sure I can offer you state of the art
+            scalable solutions at competitive prices.
           </p>
         </StyledDescriptionLeft>
         <StyledDescriptionRight>
           <h2>What I Do</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            dolor et esse, est nemo quis vero debitis vel rem maiores itaque
-            quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate
-            ullam!
+            I create custom-built, high quality solutions to accommodate your
+            business needs. My primary aim is to figure out the best way to help
+            your company achieve success and add real value to your business.
           </p>
         </StyledDescriptionRight>
         <StyledDescriptionLeft>
-          <h2>Why me</h2>
+          <h2>Why Me</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            dolor et esse, est nemo quis vero debitis vel rem maiores itaque
-            quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate
-            ullam!
+            My main goal is to offer tailored, highly competitive service. I
+            understand that high quality services are essential to your business
+            but not always feasible. Large agencies or in-house solution can be
+            difficult to resource efficiently.
           </p>
         </StyledDescriptionLeft>
       </StyledDescriptionContainer>
@@ -225,14 +424,14 @@ const About = () => {
             services<span>.</span>
           </h2>
         </StyledTitle>
-        <StyledDescription>
+        <StyledServiceDescription>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fuga
             non facilis ab. Fugit, voluptatibus. Excepturi consequatur iusto
             perferendis inventore, ipsum hic et deleniti dolores ad voluptates
             consectetur ab fugiat!
           </p>
-        </StyledDescription>
+        </StyledServiceDescription>
         <StyledServicesList>
           {services.map((item, index) => {
             return (
@@ -258,14 +457,14 @@ const About = () => {
             process<span>.</span>
           </h2>
         </StyledTitle>
-        <StyledDescription>
+        <StyledProcessDescription>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
             nostrum accusantium consectetur dignissimos maiores! Dicta ratione
             voluptatibus facilis autem enim non dolorum iusto, veniam odio
             asperiores suscipit quibusdam, illo odit.
           </p>
-        </StyledDescription>
+        </StyledProcessDescription>
         <StyledProcessInnerContainer>
           {cards.map((item, index) => {
             return (

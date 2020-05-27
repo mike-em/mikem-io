@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Navbar from '../components/Navbar'
 import MainLayout from '../components/MainLayout'
 import mailLight from '../images/mail-icon-light.svg'
