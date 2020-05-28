@@ -40,6 +40,11 @@ const StyledDescriptionLeft = styled.div`
   border-left: none;
   border-radius: 0 50px 50px 0;
 
+  @media ${device.smallMobile} {
+    width: 90vw;
+    padding: 30px 50px;
+  }
+
   @media ${device.tablet} {
     width: 60vw;
     padding: 30px 50px;
@@ -86,6 +91,11 @@ const StyledDescriptionRight = styled.div`
   border: 2px solid ${({ theme }) => theme.color.primary};
   border-right: none;
   border-radius: 50px 0 0 50px;
+
+  @media ${device.smallMobile} {
+    width: 90vw;
+    padding: 30px 50px;
+  }
 
   @media ${device.tablet} {
     width: 60vw;
@@ -184,47 +194,52 @@ const StyledTitle = styled.div`
   }
 `
 
-const StyledServiceDescription = styled.div`
+const StyledInnerDescriptionContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
   width: 95vw;
-  justify-self: center;
-  margin-bottom: 50px;
 
   @media ${device.tablet} {
-    width: 50vw;
-    justify-self: end;
-    margin-right: 50px;
+    justify-content: flex-end;
+    width: 90vw;
   }
 
   @media ${device.laptop} {
-    width: 50vw;
-    justify-self: end;
-    margin-right: 80px;
-  }
-
-  @media ${device.desktop} {
-    width: 40vw;
-    justify-self: end;
-    margin-right: 200px;
-  }
-
-  @media ${device.xl} {
-    width: 30vw;
-    justify-self: end;
-    margin-right: 400px;
-  }
-`
-
-const StyledProcessDescription = styled.div`
-  width: 95vw;
-  justify-self: center;
-  margin-bottom: 50px;
-
-  @media ${device.tablet} {
+    justify-content: flex-end;
     width: 80vw;
   }
 
   @media ${device.xl} {
+    justify-content: flex-end;
     width: 60vw;
+  }
+`
+
+const StyledDescription = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 95vw;
+  margin-bottom: 50px;
+
+  @media ${device.tablet} {
+    justify-content: flex-end;
+    width: 50vw;
+  }
+
+  @media ${device.laptop} {
+    justify-content: flex-end;
+    width: 40vw;
+  }
+
+  @media ${device.desktop} {
+    justify-content: flex-end;
+    width: 30vw;
+  }
+
+  @media ${device.xl} {
+    justify-content: flex-end;
+    width: 20vw;
   }
 `
 
@@ -424,14 +439,16 @@ const About = () => {
             services<span>.</span>
           </h2>
         </StyledTitle>
-        <StyledServiceDescription>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fuga
-            non facilis ab. Fugit, voluptatibus. Excepturi consequatur iusto
-            perferendis inventore, ipsum hic et deleniti dolores ad voluptates
-            consectetur ab fugiat!
-          </p>
-        </StyledServiceDescription>
+        <StyledInnerDescriptionContainer>
+          <StyledDescription>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fuga
+              non facilis ab. Fugit, voluptatibus. Excepturi consequatur iusto
+              perferendis inventore, ipsum hic et deleniti dolores ad voluptates
+              consectetur ab fugiat!
+            </p>
+          </StyledDescription>
+        </StyledInnerDescriptionContainer>
         <StyledServicesList>
           {services.map((item, index) => {
             return (
@@ -457,14 +474,16 @@ const About = () => {
             process<span>.</span>
           </h2>
         </StyledTitle>
-        <StyledProcessDescription>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            nostrum accusantium consectetur dignissimos maiores! Dicta ratione
-            voluptatibus facilis autem enim non dolorum iusto, veniam odio
-            asperiores suscipit quibusdam, illo odit.
-          </p>
-        </StyledProcessDescription>
+        <StyledInnerDescriptionContainer>
+          <StyledDescription>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              nostrum accusantium consectetur dignissimos maiores! Dicta ratione
+              voluptatibus facilis autem enim non dolorum iusto, veniam odio
+              asperiores suscipit quibusdam, illo odit.
+            </p>
+          </StyledDescription>
+        </StyledInnerDescriptionContainer>
         <StyledProcessInnerContainer>
           {cards.map((item, index) => {
             return (

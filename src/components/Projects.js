@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { device } from '../utils/device'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import Ecommerce from './projects/Ecommerce'
-import SocialNetwork from './projects/SocialNetwork'
-import Portfolio from './projects/Portfolio'
+import { graphql, useStaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 import arrowRight from '../images/arrow-right-white.svg'
 import projects from '../utils/projectMenu' // project menu array
 
@@ -97,14 +96,50 @@ const StyledNavItem = styled.li`
   }
 `
 
+const StyledBcgImage = styled(BackgroundImage)`
+  height: 100vh;
+`
+
 const Projects = () => {
   const [state, setState] = useState('one')
 
+  const data = useStaticQuery(graphql`
+    {
+      imageOne: file(relativePath: { eq: "imageone.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageTwo: file(relativePath: { eq: "imagetwo.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageThree: file(relativePath: { eq: "imagethree.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <StyledContainer state={state}>
-      {state === 'one' && <Ecommerce />}
-      {state === 'two' && <SocialNetwork />}
-      {state === 'three' && <Portfolio />}
+      {state === 'one' && (
+        <StyledBcgImage fluid={data.imageOne.childImageSharp.fluid} />
+      )}
+      {state === 'two' && (
+        <StyledBcgImage fluid={data.imageTwo.childImageSharp.fluid} />
+      )}
+      {state === 'three' && (
+        <StyledBcgImage fluid={data.imageThree.childImageSharp.fluid} />
+      )}
       <StyledNav>
         {projects.map((item, index) => (
           <AniLink

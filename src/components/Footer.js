@@ -44,6 +44,11 @@ const StyledSocialIcon = styled.div`
   background-repeat: no-repeat;
   background-size: 50%;
   background-position: 50% 50%;
+  transition: transform 200ms ease-in-out;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `
 
 const StyledCopyright = styled.div`

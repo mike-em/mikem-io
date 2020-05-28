@@ -98,6 +98,11 @@ const StyledDescriptionRight = styled.div`
   border-right: none;
   border-radius: 50px 0 0 50px;
 
+  @media ${device.smallMobile} {
+    width: 90vw;
+    padding: 30px 50px;
+  }
+
   @media ${device.tablet} {
     width: 60vw;
     padding: 30px 50px;
