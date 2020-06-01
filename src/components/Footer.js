@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
   width: 100%;
   height: 110px;
   margin-top: 50px;
-  background-color: #ff7500;
+  background-color: ${({ theme }) => theme.color.primary};
 `
 
 const StyledSocialMediaContainer = styled.div`

@@ -1,13 +1,40 @@
-import React from 'react'
-import styled from 'styled-components'
-import { device } from '../utils/device'
+import React, { useState, useEffect } from 'react'
+import styled, { css, keyframes } from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Hero from './Hero'
-import cards from '../utils/cards'
 import Footer from './Footer'
+import cards from '../utils/cards'
 import Blob from '../components/atoms/Blob'
 import arrowRight from '../images/arrow-right-primary.svg'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import services from '../utils/services'
+import { device } from '../utils/device'
+import { gsap, CSSPlugin } from 'gsap'
+
+const SmallIconAmination = props => keyframes`
+  0% {
+    top: 50px;
+    left: 30%;
+    transform: scale(1)
+  }
+  100% {
+    top: 0px;
+    left: -30px;
+    transform: scale(0.4)
+  }
+`
+
+const SmallIconAminationReverse = props => keyframes`
+  0% {
+    top: 0px;
+    left: -30px;
+    transform: scale(0.4)
+  }
+  100% {
+    top: 50px;
+    left: 30%;
+    transform: scale(1)
+  }
+`
 
 const StyledContainer = styled.div`
   display: flex;
@@ -39,6 +66,10 @@ const StyledDescriptionLeft = styled.div`
   border: 2px solid ${({ theme }) => theme.color.primary};
   border-left: none;
   border-radius: 0 50px 50px 0;
+
+  a {
+    text-decoration: none;
+  }
 
   @media ${device.smallMobile} {
     width: 90vw;
@@ -371,6 +402,10 @@ const StyledCard = styled.div`
   border-radius: 20px;
   position: relative;
 
+  :hover {
+    cursor: pointer;
+  }
+
   @media ${device.tablet} {
     width: 100%;
   }
@@ -387,6 +422,20 @@ const StyledCard = styled.div`
     letter-spacing: 2px;
     position: absolute;
     top: 130px;
+    transition: opacity 200ms ease-in-out;
+    opacity: ${({ activeCard, cardIndex }) =>
+      activeCard === cardIndex ? '0' : '1'};
+  }
+
+  p {
+    margin: 0;
+    width: 70%;
+    right: 20px;
+    position: absolute;
+    color: ${({ theme }) => theme.color.white};
+    transition: opacity 200ms ease-in-out;
+    opacity: ${({ activeCard, cardIndex }) =>
+      activeCard === cardIndex ? '1' : '0'};
   }
 `
 
@@ -399,14 +448,52 @@ const StyledCardImg = styled.div`
   background-position: 50% 50%;
   position: absolute;
   top: 50px;
+  left: 30%;
+  animation: ${p => SmallIconAminationReverse(p)} 200ms linear forwards;
+
+  ${({ smallImage, imageInxed }) =>
+    smallImage === imageInxed &&
+    css`
+      animation: ${p => SmallIconAmination(p)} 200ms linear forwards;
+    `}
 `
 
 const About = () => {
+  const [showDescription, setShowDescription] = useState(null)
+  const [initState, setInitState] = useState(true)
+
+  useEffect(() => {
+    let tl = gsap.timeline()
+
+    if (initState) {
+      tl.fromTo(
+        '#who',
+        1,
+        { css: { opacity: 0, y: 200 } },
+        { css: { opacity: 1, y: 0, visibility: 'visible' } }
+      )
+        .fromTo(
+          '#what',
+          1,
+          { css: { opacity: 0, y: 200 } },
+          { css: { opacity: 1, y: 0, visibility: 'visible' } },
+          '-=0.7'
+        )
+        .fromTo(
+          '#why',
+          1,
+          { css: { opacity: 0, y: 200 } },
+          { css: { opacity: 1, y: 0, visibility: 'visible' } },
+          '-=0.7'
+        )
+    }
+  }, [initState])
+
   return (
     <StyledContainer>
       <Hero title="about me" />
       <StyledDescriptionContainer>
-        <StyledDescriptionLeft>
+        <StyledDescriptionLeft id="who">
           <h2>Who Am I</h2>
           <p>
             I'm Michael, a Full Stack software engineer. I focus on building
@@ -415,7 +502,7 @@ const About = () => {
             scalable solutions at competitive prices.
           </p>
         </StyledDescriptionLeft>
-        <StyledDescriptionRight>
+        <StyledDescriptionRight id="what">
           <h2>What I Do</h2>
           <p>
             I create custom-built, high quality solutions to accommodate your
@@ -423,13 +510,24 @@ const About = () => {
             your company achieve success and add real value to your business.
           </p>
         </StyledDescriptionRight>
-        <StyledDescriptionLeft>
+        <StyledDescriptionLeft id="why">
           <h2>Why Me</h2>
           <p>
             My main goal is to offer tailored, highly competitive service. I
             understand that high quality services are essential to your business
             but not always feasible. Large agencies or in-house solution can be
-            difficult to resource efficiently.
+            difficult to resource efficiently. If you have new project in mind,
+            don't hesitate to{' '}
+            <AniLink
+              cover
+              direction="up"
+              bg="#ff7500"
+              duration={0.6}
+              to="/contact"
+              style={{ color: '#ff7500' }}
+            >
+              contact me.
+            </AniLink>
           </p>
         </StyledDescriptionLeft>
       </StyledDescriptionContainer>
@@ -487,9 +585,22 @@ const About = () => {
         <StyledProcessInnerContainer>
           {cards.map((item, index) => {
             return (
-              <StyledCard key={index}>
-                <StyledCardImg cardImg={item.image} />
+              <StyledCard
+                key={index}
+                onClick={() => setShowDescription(index)}
+                activeCard={showDescription}
+                cardIndex={index}
+              >
+                <StyledCardImg
+                  cardImg={item.image}
+                  smallImage={showDescription}
+                  imageInxed={index}
+                />
                 <h3>{item.title}</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti nostrum accusantium consectetur dignissimos maiores!
+                </p>
               </StyledCard>
             )
           })}

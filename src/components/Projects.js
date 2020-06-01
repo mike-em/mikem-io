@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { device } from '../utils/device'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { graphql, useStaticQuery } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-import arrowRight from '../images/arrow-right-white.svg'
+import { gsap, CSSPlugin } from 'gsap'
 import projects from '../utils/projectMenu' // project menu array
+import Img from 'gatsby-image'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import arrowRight from '../images/arrow-right-white.svg'
+import { device } from '../utils/device'
+
+const C = CSSPlugin
 
 const StyledContainer = styled.div`
-  margin: 0 auto;
+  margin: -80px auto 0 auto;
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  position: fixed;
   top: 0;
   left: 0;
   transition: 300ms ease-in-out;
@@ -23,11 +25,13 @@ const StyledNav = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   height: 30%;
+  width: 100%;
   list-style: none;
   position: absolute;
   bottom: 0;
   margin-bottom: 120px;
   padding-left: 10px;
+  transform: translateX(-2000px);
 
   a {
     text-decoration: none;
@@ -36,6 +40,7 @@ const StyledNav = styled.ul`
   @media ${device.tablet} {
     height: 50%;
     margin-bottom: 40px;
+    padding-left: 20px;
   }
 
   @media ${device.desktop} {
@@ -74,15 +79,15 @@ const StyledNavItem = styled.li`
   }
 
   @media ${device.tablet} {
-    font-size: 9rem;
+    font-size: 8.8rem;
   }
 
   :hover {
-    text-shadow: 3px 3px #ff7500;
-    opacity: 1;
+    text-shadow: 3px 3px ${({ theme }) => theme.color.primary};
+    opacity: 1 !important;
 
     @media ${device.tablet} {
-      text-shadow: 4px 4px #ff7500;
+      text-shadow: 4px 4px ${({ theme }) => theme.color.primary};
     }
 
     ${StyledArrow} {
@@ -96,12 +101,13 @@ const StyledNavItem = styled.li`
   }
 `
 
-const StyledBcgImage = styled(BackgroundImage)`
+const StyledBcgImage = styled(Img)`
   height: 100vh;
 `
 
 const Projects = () => {
   const [state, setState] = useState('one')
+  const [initState, setInitState] = useState(true)
 
   const data = useStaticQuery(graphql`
     {
@@ -129,6 +135,16 @@ const Projects = () => {
     }
   `)
 
+  useEffect(() => {
+    let tl = gsap.timeline()
+
+    if (initState) {
+      tl.fromTo('#one', 1, { css: { x: 0 } }, { css: { x: 2000 } })
+        .fromTo('#two', 1, { css: { x: 0 } }, { css: { x: 2000 } }, '-=0.7')
+        .fromTo('#three', 1, { css: { x: 0 } }, { css: { x: 2000 } }, '-=0.7')
+    }
+  }, [initState])
+
   return (
     <StyledContainer state={state}>
       {state === 'one' && (
@@ -152,6 +168,7 @@ const Projects = () => {
             <StyledNavItem
               onMouseEnter={() => setState(item.image)}
               state={state}
+              id={item.id}
             >
               {item.text} <StyledArrow src={arrowRight} />
             </StyledNavItem>

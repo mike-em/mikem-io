@@ -34,7 +34,7 @@ const StyledDescriptionContainer = styled.div`
 const StyledDescriptionLeft = styled.div`
   width: 90vw;
   padding: 30px;
-  border: 2px solid #ff7500;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-left: none;
   border-radius: 0 50px 50px 0;
   background-image: ${({ bcgImage }) => bcgImage && `url(${bcgImage})`};

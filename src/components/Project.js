@@ -34,59 +34,27 @@ const StyledDescriptionContainer = styled.div`
   }
 `
 
-const StyledDescriptionLeft = styled.div`
-  width: 90vw;
-  padding: 30px 30px;
-  border: 2px solid ${({ theme }) => theme.color.primary};
-  border-left: none;
-  border-radius: 0 50px 50px 0;
+const StyledInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 130px);
+`
+const StyledHero = styled(Hero)`
+  display: flex;
+  justify-content: space-between;
+  width: 95vw;
 
   @media ${device.tablet} {
-    width: 60vw;
+    width: 90vw;
   }
 
   @media ${device.laptop} {
-    width: 55vw;
-    padding: 50px 80px;
-  }
-
-  @media ${device.desktop} {
-    border: 2px solid ${({ theme }) => theme.color.primary};
-    border-radius: 50px;
-    width: 45vw;
-    padding: 50px 120px;
+    width: 80vw;
   }
 
   @media ${device.xl} {
-    width: 35vw;
-  }
-
-  h2 {
-    margin-top: 0;
-    letter-spacing: 2px;
-    font-size: 3rem;
-
-    @media ${device.tablet} {
-      font-size: 4.5rem;
-    }
-    span {
-      color: #ff7500;
-      margin-left: 3px;
-    }
-  }
-
-  ul {
-    padding-left: 30px;
-
-    li {
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-
-      @media ${device.tablet} {
-        font-size: 2.2rem;
-        margin-top: 5px;
-      }
-    }
+    width: 60vw;
   }
 `
 
@@ -94,7 +62,7 @@ const StyledDescriptionRight = styled.div`
   justify-self: end;
   width: 90vw;
   padding: 30px 30px;
-  border: 2px solid #ff7500;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-right: none;
   border-radius: 50px 0 0 50px;
 
@@ -135,14 +103,62 @@ const StyledDescriptionRight = styled.div`
 const StyledImageContainer = styled(Img)`
   margin-top: 50px;
   width: 100vw;
-  height: 500px;
+  height: 100vh;
+`
 
-  @media ${device.laptop} {
-    height: 600px;
+const StyledDescriptionLeft = styled.div`
+  width: 90vw;
+  padding: 30px 30px;
+  border: 2px solid ${({ theme }) => theme.color.primary};
+  border-left: none;
+  border-radius: 0 50px 50px 0;
+
+  @media ${device.tablet} {
+    width: 60vw;
   }
 
   @media ${device.laptop} {
-    height: 700px;
+    width: 55vw;
+    padding: 50px 80px;
+  }
+
+  @media ${device.desktop} {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    border-radius: 50px;
+    width: 45vw;
+    padding: 50px 120px;
+  }
+
+  @media ${device.xl} {
+    width: 35vw;
+  }
+
+  h2 {
+    margin-top: 0;
+    letter-spacing: 2px;
+    font-size: 3rem;
+
+    @media ${device.tablet} {
+      font-size: 4.5rem;
+    }
+    span {
+      color: ${({ theme }) => theme.color.primary};
+      margin-left: 3px;
+    }
+  }
+
+  ul {
+    padding-left: 30px;
+
+    li {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+
+      @media ${device.tablet} {
+        font-size: 2.2rem;
+        margin-top: 5px;
+      }
+    }
   }
 `
 
@@ -155,7 +171,7 @@ const StyledLinksContainer = styled.div`
   padding: 0 30px;
   width: 200px;
   height: 80px;
-  border: 2px solid #ff7500;
+  border: 2px solid ${({ theme }) => theme.color.primary};
   border-radius: 50px;
 `
 
@@ -177,7 +193,7 @@ const StyledBottomNav = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 40vw;
+  width: 50vw;
   height: 30px;
   margin: 30px 0 -20px 0;
   color: ${({ theme }) => theme.color.primary};
@@ -262,14 +278,16 @@ const Project = ({ title, pageContext }) => {
 
   return (
     <StyledContainer>
-      <Hero title={title} />
-      <StyledDescriptionContainer>
-        <StyledDescriptionRight>
-          {pageContext === 'projectOne' && projects[0].description}
-          {pageContext === 'projectTwo' && projects[1].description}
-          {pageContext === 'projectThree' && projects[2].description}
-        </StyledDescriptionRight>
-      </StyledDescriptionContainer>
+      <StyledInnerContainer>
+        <StyledHero title={title} />
+        <StyledDescriptionContainer>
+          <StyledDescriptionRight>
+            {pageContext === 'projectOne' && projects[0].description}
+            {pageContext === 'projectTwo' && projects[1].description}
+            {pageContext === 'projectThree' && projects[2].description}
+          </StyledDescriptionRight>
+        </StyledDescriptionContainer>
+      </StyledInnerContainer>
       {pageContext === 'projectOne' && (
         <StyledImageContainer fluid={data.imageOne.childImageSharp.fluid} />
       )}

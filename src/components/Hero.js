@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import HeroBlob from '../components/atoms/HeroBlob'
+import { gsap, CSSPlugin } from 'gsap'
 import { device } from '../utils/device'
+
+const C = CSSPlugin
 
 const StyledHeroContainer = styled.div`
   display: flex;
@@ -54,11 +57,12 @@ const StyledTitle = styled.h1`
 
 const StyledBlobContainer = styled.div`
   margin-top: -200px;
-  margin-left: -50px;
+  margin-left: -70px;
 
   @media ${device.smallMobile} {
     margin-top: -180px;
-    margin-left: -70px;
+    margin-left: -80px;
+    margin-right: -110px;
   }
   @media ${device.tablet} {
     margin-right: -120px;
@@ -78,9 +82,18 @@ const StyledBlobContainer = styled.div`
 `
 
 const Hero = ({ title, titleSize }) => {
+  const [state, setState] = useState(true)
+
+  useEffect(() => {
+    let tl = gsap.timeline()
+
+    if (state) {
+      tl.fromTo('#title', 1, { css: { x: -2000 } }, { css: { x: 0 } })
+    }
+  }, [state])
   return (
     <StyledHeroContainer>
-      <StyledTitle titleSize={titleSize}>
+      <StyledTitle titleSize={titleSize} id="title">
         {title}
         <span>.</span>
       </StyledTitle>

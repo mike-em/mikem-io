@@ -1,47 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import logoDark from '../images/mm-logo-dark.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Blob from '../components/atoms/Blob'
 import menuList from '../utils/menu' // menu items array
+import image from '../images/mikem-io.jpg'
 import { device } from '../utils/device'
-
-const StyledMenuContainer = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1099;
-  color: ${({ state }) => (state ? 'black' : 'white')};
-  transition: color 300ms 200ms ease-in-out;
-  overflow: hidden;
-
-  p {
-    display: none;
-
-    @media ${device.tablet} {
-      display: block;
-    }
-  }
-
-  ${({ navColor }) =>
-    navColor &&
-    css`
-      color: black;
-    `}
-`
 
 const StyledMenuButton = styled.button`
   padding: 10px 10px 10px 10px;
   display: inline-block;
   cursor: pointer;
-  grid-area: menu;
   background-color: transparent;
   border: 0;
   margin: 0;
   align-self: center;
-  justify-self: end;
   transition: transform 100ms 300ms ease-in-out;
   outline-style: none;
+  z-index: 1099;
 `
 const StyledHamburger = styled.span`
   width: 30px;
@@ -106,8 +82,9 @@ const StyledHamburgerInner = styled.span`
 `
 
 const StyledSligingMenuContainer = styled.div`
+  display: flex;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -134,10 +111,10 @@ const StyledMenuBlob = styled.div`
 const StyledSlidingMenuBlobContainer = styled.div`
   width: 0vw;
   min-height: 100vh;
-  position: fixed;
-  background-color: ${({ theme }) => theme.color.primary};
-  top: 0;
-  left: 0;
+  background-image: url(${image});
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
 
   @media ${device.tablet} {
     width: 50vw;
@@ -151,9 +128,6 @@ const StyledSlidingMenuListContainer = styled.div`
   width: 100vw;
   min-height: 100vh;
   background-color: ${({ theme }) => theme.color.white};
-  position: fixed;
-  top: 0;
-  right: 0;
 
   a {
     text-decoration: none;
@@ -203,56 +177,14 @@ const StyledSlidingMenuListContainer = styled.div`
   }
 `
 
-const StyledBlobContainer = styled.div`
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 1099;
-  opacity: ${({ state, isVisible }) => (state || isVisible ? '0' : '1')};
-  transform: translateX(${props => (props.isVisible !== true ? '0' : '120px')});
-  transition: all 300ms 200ms ease-in-out;
-  :hover {
-    cursor: pointer;
-  }
-`
-
-const Menu = ({ navColor, children }) => {
-  const [state, setState] = useState(false)
-  const [visible, setVisible] = useState(false)
-
-  // function hiding contact link on scroll
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [visible])
-
-  const toggleMenu = () => {
-    setState(!state)
-  }
-
-  const handleScroll = () => {
-    if (document.defaultView.scrollY > 200) {
-      setVisible(true)
-    } else if (document.defaultView.scrollY < 200) {
-      setVisible(false)
-    }
-  }
-
+const Menu = ({ navColor, toggleMenu, state }) => {
   return (
     <>
-      <StyledMenuContainer
-        onClick={toggleMenu}
-        state={state}
-        navColor={navColor}
-      >
-        <p>MENU</p>
-        <StyledMenuButton>
-          <StyledHamburger>
-            <StyledHamburgerInner toggle={state} navColor={navColor} />
-          </StyledHamburger>
-        </StyledMenuButton>
-      </StyledMenuContainer>
+      <StyledMenuButton onClick={toggleMenu}>
+        <StyledHamburger>
+          <StyledHamburgerInner toggle={state} navColor={navColor} />
+        </StyledHamburger>
+      </StyledMenuButton>
       <StyledSligingMenuContainer toggle={state} onClick={toggleMenu}>
         <StyledSlidingMenuBlobContainer>
           <StyledMenuBlob>
@@ -278,9 +210,6 @@ const Menu = ({ navColor, children }) => {
           ))}
         </StyledSlidingMenuListContainer>
       </StyledSligingMenuContainer>
-      <StyledBlobContainer state={state} isVisible={visible}>
-        {children}
-      </StyledBlobContainer>
     </>
   )
 }

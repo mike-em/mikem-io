@@ -1,4 +1,5 @@
 import meeting from '../images/cards/meeting.svg'
+import videoMeeting from '../images/cards/video-meeting.svg'
 import mindMap from '../images/cards/mind-map.svg'
 import design from '../images/cards/design.svg'
 import development from '../images/cards/development.svg'
@@ -7,8 +8,8 @@ import support from '../images/cards/support.svg'
 
 export default [
   {
-    title: 'meeting',
-    image: meeting,
+    title: 'video call or meeting',
+    image: videoMeeting,
   },
   {
     title: 'planning & analysis',
