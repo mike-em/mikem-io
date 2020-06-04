@@ -10,6 +10,8 @@ import services from '../utils/services'
 import { device } from '../utils/device'
 import { gsap, CSSPlugin } from 'gsap'
 
+const C = CSSPlugin
+
 const SmallIconAmination = props => keyframes`
   0% {
     top: 50px;
@@ -18,7 +20,7 @@ const SmallIconAmination = props => keyframes`
   }
   100% {
     top: 0px;
-    left: -30px;
+    left: -20px;
     transform: scale(0.4)
   }
 `
@@ -66,6 +68,10 @@ const StyledDescriptionLeft = styled.div`
   border: 2px solid ${({ theme }) => theme.color.primary};
   border-left: none;
   border-radius: 0 50px 50px 0;
+
+  span {
+    color: ${({ theme }) => theme.color.primary};
+  }
 
   a {
     text-decoration: none;
@@ -274,6 +280,35 @@ const StyledDescription = styled.div`
   }
 `
 
+const StyledServiceDescription = styled(StyledDescription)`
+  width: 65vw;
+  margin-right: 10px;
+
+  @media ${device.smallMobile} {
+    width: 95vw;
+  }
+
+  @media ${device.tablet} {
+    justify-content: flex-end;
+    width: 50vw;
+  }
+
+  @media ${device.laptop} {
+    justify-content: flex-end;
+    width: 40vw;
+  }
+
+  @media ${device.desktop} {
+    justify-content: flex-end;
+    width: 30vw;
+  }
+
+  @media ${device.xl} {
+    justify-content: flex-end;
+    width: 20vw;
+  }
+`
+
 const StyledServicesList = styled.div`
   display: grid;
   grid-gap: 20px;
@@ -297,10 +332,15 @@ const StyledServicesList = styled.div`
   }
 
   h3 {
-    font-size: 3.5rem;
-    letter-spacing: 3px;
+    font-size: 3rem;
+    letter-spacing: 2px;
     margin-top: 10px;
     margin-bottom: 0;
+
+    @media ${device.smallMobile} {
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+    }
   }
 
   ul {
@@ -316,12 +356,16 @@ const StyledServicesList = styled.div`
 const StyledLinkContainer = styled(AniLink)`
   display: flex;
   align-items: center;
-  width: 85%;
+  width: 60%;
   height: 80px;
   justify-self: center;
   margin-bottom: 10px;
   text-decoration: none;
   color: ${({ theme }) => theme.color.white};
+
+  @media ${device.smallMobile} {
+    width: 80%;
+  }
 
   @media ${device.tablet} {
     width: 320px;
@@ -338,12 +382,15 @@ const StyledLinkContainer = styled(AniLink)`
   }
 
   h3 {
-    font-size: 2.4rem;
-    letter-spacing: 3px;
+    width: 320px;
+    font-size: 2rem;
+    letter-spacing: 2px;
     margin: 0;
 
     @media ${device.smallMobile} {
+      width: 350px;
       font-size: 2.8rem;
+      letter-spacing: 3px;
     }
   }
 `
@@ -470,7 +517,9 @@ const About = () => {
         '#who',
         1,
         { css: { opacity: 0, y: 200 } },
-        { css: { opacity: 1, y: 0, visibility: 'visible' } }
+        {
+          css: { opacity: 1, y: 0, visibility: 'visible' },
+        }
       )
         .fromTo(
           '#what',
@@ -496,10 +545,10 @@ const About = () => {
         <StyledDescriptionLeft id="who">
           <h2>Who Am I</h2>
           <p>
-            I'm Michael, a Full Stack software engineer. I focus on building
-            high quality websites and web applications. I always stay on top of
-            latest technologies to make sure I can offer you state of the art
-            scalable solutions at competitive prices.
+            I'm <span>Michael</span>, a Full Stack software engineer. I focus on
+            building high quality websites and web applications. I always stay
+            on top of latest technologies to make sure I can offer you state of
+            the art scalable solutions at competitive prices.
           </p>
         </StyledDescriptionLeft>
         <StyledDescriptionRight id="what">
@@ -531,21 +580,21 @@ const About = () => {
           </p>
         </StyledDescriptionLeft>
       </StyledDescriptionContainer>
-      <StyledServicesContainer>
-        <StyledTitle>
+      <StyledServicesContainer className="container">
+        <StyledTitle id="services-sub">
           <h2>
             services<span>.</span>
           </h2>
         </StyledTitle>
         <StyledInnerDescriptionContainer>
-          <StyledDescription>
+          <StyledServiceDescription>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fuga
               non facilis ab. Fugit, voluptatibus. Excepturi consequatur iusto
               perferendis inventore, ipsum hic et deleniti dolores ad voluptates
               consectetur ab fugiat!
             </p>
-          </StyledDescription>
+          </StyledServiceDescription>
         </StyledInnerDescriptionContainer>
         <StyledServicesList>
           {services.map((item, index) => {

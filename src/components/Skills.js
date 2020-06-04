@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { gsap, CSSPlugin } from 'gsap'
 import { device } from '../utils/device'
 import Hero from './Hero'
 import Footer from './Footer'
 import reactIcon from '../images/react-icon.svg'
 import nodeIcon from '../images/node-icon.svg'
 import figmaIcon from '../images/figma-icon.svg'
+
+const C = CSSPlugin
 
 const StyledContainer = styled.div`
   display: flex;
@@ -21,6 +24,7 @@ const StyledDescriptionContainer = styled.div`
   grid-gap: 30px;
   margin-top: 50px;
   color: ${({ theme }) => theme.color.black};
+  overflow: hidden;
 
   @media ${device.desktop} {
     width: 80vw;
@@ -79,7 +83,7 @@ const StyledDescriptionLeft = styled.div`
   }
 
   ul {
-    padding-left: 30px;
+    padding-left: 50px;
 
     li {
       font-size: 1.8rem;
@@ -147,7 +151,7 @@ const StyledDescriptionRight = styled.div`
   }
 
   ul {
-    padding-left: 30px;
+    padding-left: 50px;
 
     li {
       font-size: 1.8rem;
@@ -162,11 +166,42 @@ const StyledDescriptionRight = styled.div`
 `
 
 const Skills = () => {
+  const [state, setstate] = useState(true)
+
+  useEffect(() => {
+    let tl = gsap.timeline()
+
+    if (state) {
+      tl.fromTo(
+        '#front',
+        1,
+        { css: { opacity: 0, y: 200 } },
+        {
+          css: { opacity: 1, y: 0, visibility: 'visible' },
+        }
+      )
+        .fromTo(
+          '#back',
+          1,
+          { css: { opacity: 0, y: 200 } },
+          { css: { opacity: 1, y: 0, visibility: 'visible' } },
+          '-=0.7'
+        )
+        .fromTo(
+          '#design',
+          1,
+          { css: { opacity: 0, y: 200 } },
+          { css: { opacity: 1, y: 0, visibility: 'visible' } },
+          '-=0.7'
+        )
+    }
+  }, [state])
+
   return (
     <StyledContainer>
       <Hero title="my skills" />
       <StyledDescriptionContainer>
-        <StyledDescriptionLeft bcgImage={reactIcon}>
+        <StyledDescriptionLeft bcgImage={reactIcon} id="front">
           <h2>
             frontend<span>.</span>
           </h2>
@@ -182,7 +217,7 @@ const Skills = () => {
             <li>Bulma</li>
           </ul>
         </StyledDescriptionLeft>
-        <StyledDescriptionRight bcgImage={nodeIcon}>
+        <StyledDescriptionRight bcgImage={nodeIcon} id="back">
           <h2>
             backend & database<span>.</span>
           </h2>
@@ -196,7 +231,7 @@ const Skills = () => {
             <li>Rest API</li>
           </ul>
         </StyledDescriptionRight>
-        <StyledDescriptionLeft bcgImage={figmaIcon}>
+        <StyledDescriptionLeft bcgImage={figmaIcon} id="design">
           <h2>
             design<span>.</span>
           </h2>

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { gsap, CSSPlugin } from 'gsap'
 import styled from 'styled-components'
 import { device } from '../utils/device'
 import Img from 'gatsby-image'
@@ -10,6 +11,8 @@ import githubIcon from '../images/github-link-primary.svg'
 import arrowIcon from '../images/arrow-right-primary.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import projects from '../utils/projects'
+
+const C = CSSPlugin
 
 const StyledContainer = styled.div`
   display: flex;
@@ -61,6 +64,7 @@ const StyledHero = styled(Hero)`
 const StyledDescriptionRight = styled.div`
   justify-self: end;
   width: 90vw;
+  margin-top: 20px;
   padding: 30px 30px;
   border: 2px solid ${({ theme }) => theme.color.primary};
   border-right: none;
@@ -73,11 +77,13 @@ const StyledDescriptionRight = styled.div`
 
   @media ${device.tablet} {
     width: 60vw;
+    margin-top: 40px;
     padding: 30px 50px;
   }
 
   @media ${device.laptop} {
     width: 55vw;
+    margin-top: 50px;
     padding: 50px 80px;
   }
 
@@ -250,6 +256,8 @@ const StyledButtonNext = styled.div`
 `
 
 const Project = ({ title, pageContext }) => {
+  const [state, setState] = useState(true)
+
   const data = useStaticQuery(graphql`
     {
       imageOne: file(relativePath: { eq: "imageone.jpg" }) {
@@ -276,12 +284,27 @@ const Project = ({ title, pageContext }) => {
     }
   `)
 
+  useEffect(() => {
+    let tl = gsap.timeline()
+
+    if (state) {
+      tl.fromTo(
+        '#desc',
+        1,
+        { css: { opacity: 0, y: 200 } },
+        {
+          css: { opacity: 1, y: 0, visibility: 'visible' },
+        }
+      )
+    }
+  }, [state])
+
   return (
     <StyledContainer>
       <StyledInnerContainer>
         <StyledHero title={title} />
         <StyledDescriptionContainer>
-          <StyledDescriptionRight>
+          <StyledDescriptionRight id="desc">
             {pageContext === 'projectOne' && projects[0].description}
             {pageContext === 'projectTwo' && projects[1].description}
             {pageContext === 'projectThree' && projects[2].description}

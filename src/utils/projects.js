@@ -15,7 +15,7 @@ export default [
     ],
     projectUrl: 'https://google.com',
     githubUrl: 'https://github.com',
-    nextLink: '/social-network',
+    nextLink: '/client-panel',
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ export default [
     ],
     projectUrl: 'https://google.com',
     githubUrl: 'https://github.com',
-    nextLink: '/photography',
+    nextLink: '/portfolio',
     prevLink: '/ecommerce',
   },
   {
@@ -50,6 +50,6 @@ export default [
     ],
     projectUrl: 'https://google.com',
     githubUrl: 'https://github.com',
-    prevLink: '/social-network',
+    prevLink: '/client-panel',
   },
 ]

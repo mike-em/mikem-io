@@ -39,7 +39,7 @@ const StyledFormGroup = styled.label`
 const Label = styled.span`
   font-size: ${({ theme }) => theme.fontSize.s};
   position: absolute;
-  top: 8px;
+  top: 7px;
   left: 5px;
   transition: all 200ms ease-in-out;
 `

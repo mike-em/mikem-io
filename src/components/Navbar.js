@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { device } from '../utils/device'
 import logoDark from '../images/mm-logo-dark.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Menu from './Menu'
+
+const Animation = props => keyframes`
+   0% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 0;
+     transform: translateY(-40px);
+   }
+`
 
 const StyledContainer = styled.div`
   display: flex;
@@ -51,6 +61,32 @@ const StyledBlobContainer = styled.div`
   }
 `
 
+const StyledScroll = styled.div`
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  width: 40px;
+  height: 70px;
+  box-shadow: inset 0 0 0 1px ${({ theme }) => theme.color.black};
+  transition: all 200ms ease-in-out;
+  opacity: ${({ isVisible }) => (isVisible ? '0' : '0.6')};
+  border-radius: 25px;
+  z-index: 899;
+
+  ::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: ${({ theme }) => theme.color.black};
+    position: absolute;
+    margin-left: -4px;
+    top: 48px;
+    left: 50%;
+    border-radius: 4px;
+    animation: ${p => Animation(p)} 1.5s infinite;
+  }
+`
+
 const Navbar = ({ title, titleColor, navColor, logo, children }) => {
   const [state, setState] = useState(false)
   const [visible, setVisible] = useState(false)
@@ -88,6 +124,7 @@ const Navbar = ({ title, titleColor, navColor, logo, children }) => {
       <StyledBlobContainer state={state} isVisible={visible}>
         {children}
       </StyledBlobContainer>
+      {/* <StyledScroll isVisible={visible} /> */}
     </StyledContainer>
   )
 }

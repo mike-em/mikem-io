@@ -66,13 +66,13 @@ const StyledNavItem = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: white;
   cursor: pointer;
   opacity: 0.7;
   transition: 200ms ease-in-out;
   font-size: 3.3rem;
   font-weight: bold;
   text-align: left;
+  color: ${({ theme }) => theme.color.white};
 
   @media ${device.smallMobile} {
     font-size: 4.2rem;
@@ -103,6 +103,17 @@ const StyledNavItem = styled.li`
 
 const StyledBcgImage = styled(Img)`
   height: 100vh;
+
+  ::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: ${({ theme }) => theme.color.black};
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 `
 
 const Projects = () => {
