@@ -6,19 +6,19 @@ import privacy from '../images/privacy-policy.svg'
 
 export default [
   {
-    url: 'https://facebook.com',
+    url: 'https://www.facebook.com/Mikemio-100131214951642/',
     icon: facebook,
   },
   {
-    url: 'https://instagram.com',
+    url: 'https://www.instagram.com/mikem.io/',
     icon: instagram,
   },
   {
-    url: 'https://twitter.com',
+    url: 'https://twitter.com/mikem_io',
     icon: twitter,
   },
   {
-    url: 'https://github.com',
+    url: 'https://github.com/mikem-io',
     icon: github,
   },
   {
