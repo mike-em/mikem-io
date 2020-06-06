@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GoHeart } from 'react-icons/go'
 import social from '../utils/social'
+import AniLink from 'gatsby-plugin-transition-link'
+import privacyIcon from '../images/privacy-policy.svg'
+import { GoHeart } from 'react-icons/go'
 import { device } from '../utils/device'
 
 const StyledContainer = styled.div`

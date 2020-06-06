@@ -1,5 +1,4 @@
 import React from 'react'
-import Loading from '../components/Loading'
 import MainLayout from '../components/MainLayout'
 import Navbar from '../components/Navbar'
 import Projects from '../components/Projects'

@@ -124,7 +124,6 @@ const Navbar = ({ title, titleColor, navColor, logo, children }) => {
       <StyledBlobContainer state={state} isVisible={visible}>
         {children}
       </StyledBlobContainer>
-      {/* <StyledScroll isVisible={visible} /> */}
     </StyledContainer>
   )
 }
