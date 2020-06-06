@@ -10,7 +10,7 @@ import SEO from '../components/seo'
 const ClientPanelPage = () => {
   return (
     <MainLayout>
-      <SEO title="Client Panel" />
+      <SEO title="Client Panel | Michael Mikucki" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob

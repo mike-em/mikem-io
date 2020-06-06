@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 const ContactPage = () => {
   return (
     <MainLayout>
-      <SEO title="Contact Me" />
+      <SEO title="Contact Me | Michael Mikucki" />
       <Navbar navColor={true} titleColor="#000000" title="contact" />
       <Contact />
     </MainLayout>

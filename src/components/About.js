@@ -545,38 +545,33 @@ const About = () => {
         <StyledDescriptionLeft id="who">
           <h2>Who Am I</h2>
           <p>
-            I'm <span>Michael</span>, a Full Stack software engineer. I focus on
-            building high quality websites and web applications. I always stay
-            on top of latest technologies to make sure I can offer you state of
-            the art scalable solutions at competitive prices.
+            I'm <span>Michael</span>, based in Milton Keynes Full Stack software
+            engineer, focused on building hight quality, custom made websites
+            and web applications. I always stay on top of latest technologies to
+            make sure I can offer you state of the art solutions at competitive
+            prices. As a freelance developer I’m able to work with clients from
+            all around the world.
           </p>
         </StyledDescriptionLeft>
         <StyledDescriptionRight id="what">
           <h2>What I Do</h2>
           <p>
-            I create custom-built, high quality solutions to accommodate your
-            business needs. My primary aim is to figure out the best way to help
-            your company achieve success and add real value to your business.
+            I create custom-built, cost-effective and high quality solutions to
+            accommodate your business needs. I design stunning, intuitive
+            websites and advanced functionality for web and mobile applications.
+            My primary aim is to figure out the best way to help your company
+            achieve success and add real value to your business.
           </p>
         </StyledDescriptionRight>
         <StyledDescriptionLeft id="why">
           <h2>Why Me</h2>
           <p>
-            My main goal is to offer tailored, highly competitive service. I
-            understand that high quality services are essential to your business
-            but not always feasible. Large agencies or in-house solution can be
-            difficult to resource efficiently. If you have new project in mind,
-            don't hesitate to{' '}
-            <AniLink
-              cover
-              direction="up"
-              bg="#ff7500"
-              duration={0.6}
-              to="/contact"
-              style={{ color: '#ff7500' }}
-            >
-              contact me.
-            </AniLink>
+            You won’t have to deal with large large agency. This makes our
+            relationship more personal and helps me better understand the needs
+            of your business. I will always be the single point of contact
+            throughout the project. Even if you have requests beyond the range
+            of services I offer, I will be able to arrange for a competent
+            freelancer to complete the project.
           </p>
         </StyledDescriptionLeft>
       </StyledDescriptionContainer>
@@ -589,10 +584,12 @@ const About = () => {
         <StyledInnerDescriptionContainer>
           <StyledServiceDescription>
             <p>
-              Trust, professionalism and great atmosphere are the key to
-              building long-lasting relationships. That's why I make it my
-              mission to provide you with everything you need, without the
-              hassle of dealing with large agency.
+              I’m always up to date with the latest technologies, frameworks and
+              best practices to be able to provide you with unique digital
+              experience. My offer is exclusively digital, that includes web
+              design, responsive web development, e-commerce, iOS & Android
+              mobile development and SEO. This and more without the hassle of
+              dealing with large agency.
             </p>
           </StyledServiceDescription>
         </StyledInnerDescriptionContainer>
@@ -624,10 +621,14 @@ const About = () => {
         <StyledInnerDescriptionContainer>
           <StyledDescription>
             <p>
-              The crucial part of the lean design and development process is my
-              full understanding of your business needs. Once I have all
-              necessary information, I'll be able to make right technology
-              choice and create state of the art unique digital experience.
+              From planning and delivering new solution to redesigning an
+              existing website. Process always starts with deep understanding of
+              your business needs, market research and analysis. This helps to
+              define series of steps I need to take to deliver your project. It
+              also includes brainstorming, wireframes, static & interactive
+              designs, front-end and back-end development. It doesn’t stop
+              there, with ongoing support and monitoring I can ensure your
+              website is performing and continues to deliver results.
             </p>
           </StyledDescription>
         </StyledInnerDescriptionContainer>

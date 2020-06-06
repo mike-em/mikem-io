@@ -44,7 +44,7 @@ const StyledLink = styled.a`
 const error = () => {
   return (
     <StyledContainer>
-      <SEO title="404 Page" />
+      <SEO title="404 Page | Michael Mikucki" />
       <StyledTitle>
         <span>4</span>0<span>4</span>...
       </StyledTitle>

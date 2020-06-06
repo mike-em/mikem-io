@@ -11,36 +11,36 @@ export default [
     title: 'video call or meeting',
     image: videoMeeting,
     description:
-      'Video call or a meeting where we discuss your needs and expectations, talk about possible solutions.',
+      'Initial video call or a meeting is where we discuss your expectations and talk about possible solutions.',
   },
   {
     title: 'planning & analysis',
     image: mindMap,
     description:
-      'Once I have all information, I can prepare the brief detailing next steps of the project and transparent pricing structure.',
+      'Research and analysis, to understand your market and create simple to follow series of steps I’ll take to deliver your project.',
   },
   {
     title: 'design',
     image: design,
     description:
-      'After you approve the solutions and technology choice I can start the design process.',
+      'Collaborative process, where from start to the end I’ll be working closely with you, to create a design you’re going to love.',
   },
   {
     title: 'development',
     image: development,
     description:
-      "When the design is complete and you are happy with it, I'll start my favourite part, coding :)",
+      'Complete and approved design will then be used to develop your website or web applications.',
   },
   {
     title: 'go live',
     image: deploy,
     description:
-      'This means, your project is ready, with your final approval it is time to go live and sign off the ownership to you.',
+      'After testing the functionality, debugging and with your final approval, project is ready to go live. I will also sign off the ownership to you.',
   },
   {
     title: 'support',
     image: support,
     description:
-      "This doesn't mean we have to say goodbye, I offer full support, maintenance and future upgrades.",
+      'I offer full support, maintenance and future upgrades. Optionally CMS training, so you can easily update your website.',
   },
 ]

@@ -10,7 +10,7 @@ import SEO from '../components/seo'
 const PhotoghraphyPage = () => {
   return (
     <MainLayout>
-      <SEO title="Portfolio" />
+      <SEO title="Portfolio | Michael Mikucki" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob

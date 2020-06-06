@@ -10,7 +10,7 @@ import SEO from '../components/seo'
 const AboutPage = () => {
   return (
     <MainLayout>
-      <SEO title="About Me" />
+      <SEO title="About Me | Michael Mikucki" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob

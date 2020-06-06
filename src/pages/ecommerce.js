@@ -10,7 +10,7 @@ import SEO from '../components/seo'
 const EcommercePage = () => {
   return (
     <MainLayout>
-      <SEO title="E-commerce" />
+      <SEO title="E-commerce | Michael Mikucki" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob
