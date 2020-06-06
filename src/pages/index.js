@@ -17,7 +17,6 @@ const IndexPage = () => (
         <Blob size="100px" icon={mailPrimary} iconSize="45px" />
       </AniLink>
     </Navbar>
-    {/* <Loading /> */}
     <Projects />
   </MainLayout>
 )

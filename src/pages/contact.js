@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import MainLayout from '../components/MainLayout'
-import Contact from '../components/contact'
+import Contact from '../components/Contact'
 import SEO from '../components/seo'
 
 const ContactPage = () => {
