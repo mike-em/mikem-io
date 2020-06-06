@@ -5,10 +5,12 @@ import mailLight from '../images/mail-icon-light.svg'
 import Blob from '../components/atoms/Blob'
 import About from '../components/About'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import SEO from '../components/seo'
 
 const AboutPage = () => {
   return (
     <MainLayout>
+      <SEO title="About Me" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob

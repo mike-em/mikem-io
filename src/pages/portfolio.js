@@ -5,10 +5,12 @@ import mailLight from '../images/mail-icon-light.svg'
 import Blob from '../components/atoms/Blob'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Project from '../components/Project'
+import SEO from '../components/seo'
 
 const PhotoghraphyPage = () => {
   return (
     <MainLayout>
+      <SEO title="Portfolio" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob

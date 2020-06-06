@@ -2,21 +2,22 @@ export default [
   {
     title: 'design',
     list: [
-      'art direction',
-      'user experience',
-      'user interface',
-      'design',
-      'prototyping',
+      'Wireframe',
+      'Design',
+      'Interactive Prototype',
+      'User Experience',
+      'User Interface',
     ],
   },
   {
     title: 'development',
     list: [
-      'technology',
-      'digital strategy',
-      'brand strategy',
-      'content ideas',
-      'project management',
+      'React',
+      'Gatsby / NextJS',
+      'NodeJS',
+      'Express',
+      'Cloud Functions',
+      'Payment Integration',
     ],
   },
 ]

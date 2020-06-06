@@ -5,10 +5,12 @@ import mailLight from '../images/mail-icon-light.svg'
 import Blob from '../components/atoms/Blob'
 import Project from '../components/Project'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import SEO from '../components/seo'
 
 const EcommercePage = () => {
   return (
     <MainLayout>
+      <SEO title="E-commerce" />
       <Navbar navColor={true}>
         <AniLink cover direction="up" bg="#ff7500" duration={0.6} to="/contact">
           <Blob

@@ -589,10 +589,10 @@ const About = () => {
         <StyledInnerDescriptionContainer>
           <StyledServiceDescription>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est fuga
-              non facilis ab. Fugit, voluptatibus. Excepturi consequatur iusto
-              perferendis inventore, ipsum hic et deleniti dolores ad voluptates
-              consectetur ab fugiat!
+              Trust, professionalism and great atmosphere are the key to
+              building long-lasting relationships. That's why I make it my
+              mission to provide you with everything you need, without the
+              hassle of dealing with large agency.
             </p>
           </StyledServiceDescription>
         </StyledInnerDescriptionContainer>
@@ -624,10 +624,10 @@ const About = () => {
         <StyledInnerDescriptionContainer>
           <StyledDescription>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-              nostrum accusantium consectetur dignissimos maiores! Dicta ratione
-              voluptatibus facilis autem enim non dolorum iusto, veniam odio
-              asperiores suscipit quibusdam, illo odit.
+              The crucial part of the lean design and development process is my
+              full understanding of your business needs. Once I have all
+              necessary information, I'll be able to make right technology
+              choice and create state of the art unique digital experience.
             </p>
           </StyledDescription>
         </StyledInnerDescriptionContainer>
@@ -646,10 +646,7 @@ const About = () => {
                   imageInxed={index}
                 />
                 <h3>{item.title}</h3>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti nostrum accusantium consectetur dignissimos maiores!
-                </p>
+                <p>{item.description}</p>
               </StyledCard>
             )
           })}

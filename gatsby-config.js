@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Freelance Web Developer and Designer`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `mikem.io`,
+    description: `Michael Mikucki, Milton Keynes freelance web developer and designer, building high quality websites and web applications. London freelance web developer and designer able to work remotely with clients from all around the UK and rest of the World`,
+    author: 'mikem.io - Michael Mikucki',
+    url: 'https://mikem.io',
+    siteUrl: 'https://mikem.io',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,12 +22,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Freelance web developer and designer`,
+        short_name: `mikem.io`,
         start_url: `/`,
-        background_color: `#ff7500`,
+        background_color: `#ffffff`,
         theme_color: `#ff7500`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/mm-logo-dark.svg`, // This path is relative to the root of the site.
       },
     },

@@ -30,6 +30,7 @@ const StyledHamburgerInner = styled.span`
   width: 100%;
   height: 3px;
   background-color: ${({ theme }) => theme.color.white};
+  border-radius: 3px;
   position: absolute;
   left: 0;
   top: 50%;
@@ -51,6 +52,7 @@ const StyledHamburgerInner = styled.span`
     content: '';
     width: 100%;
     height: 3px;
+    border-radius: 3px;
     background-color: ${({ toggle, theme }) =>
       toggle ? theme.color.black : theme.color.white};
     position: absolute;

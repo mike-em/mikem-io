@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     description:
-      'One Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolor et esse, est nemo quis vero debitis vel rem maiores itaque quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolor et esse, est nemo quis vero debitis vel rem maiores taque quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate ullam!',
+      "React e-commerce application with Firebase user authentication. I created the app to learn and test React, Redux and Firebase integration, as well as Stripe payments. I'm currently working on the NodeJS Express back-end with MongoDB database to create full MERN stack e-commerce template.",
 
     technologies: [
       'React',
@@ -20,14 +20,14 @@ export default [
   {
     id: 2,
     description:
-      'Two Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolor et esse, est nemo quis vero debitis vel rem maiores itaque quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolor et esse, est nemo quis vero debitis vel rem maiores taque quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate ullam!',
+      'Simplistic and clean design with Bootstrap to speed up the development process. Application created with React, Redux and Firebase Cloud Storage to learn the basics of those frameworks and libraries. Also learned about user creation, authentication, data storage and added permission settings to the app to test functionality.',
 
     technologies: [
       'React',
       'Redux',
       'JavaScript',
-      'NodeJS',
-      'Express',
+      'Redux Auth',
+      'Firestore',
       'Bootstrap',
     ],
     projectUrl: 'https://google.com',
@@ -38,7 +38,7 @@ export default [
   {
     id: 3,
     description:
-      'Three Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolor et esse, est nemo quis vero debitis vel rem maiores itaque quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolor et esse, est nemo quis vero debitis vel rem maiores taque quibusdam doloremque totam, ut nesciunt optio voluptatum voluptate ullam!',
+      'Lightning fast Static Gatsby site with for freelance animal photographer. Responsive mobile and desktop friendly design with gallery, booking and contact form served by Firebase Cloud Functions. Modular design with React styled components creates scalable and easy to modify design.',
 
     technologies: [
       'React',
