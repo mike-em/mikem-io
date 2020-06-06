@@ -31,5 +31,18 @@ module.exports = {
         icon: `src/images/mm-logo-dark.svg`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-160411272-1',
+        head: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '200817241230030',
+      },
+    },
   ],
 }
