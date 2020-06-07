@@ -182,7 +182,7 @@ const StyledSlidingMenuListContainer = styled.div`
 const Menu = ({ navColor, toggleMenu, state }) => {
   return (
     <>
-      <StyledMenuButton onClick={toggleMenu}>
+      <StyledMenuButton onClick={toggleMenu} aria-label="menu button">
         <StyledHamburger>
           <StyledHamburgerInner toggle={state} navColor={navColor} />
         </StyledHamburger>

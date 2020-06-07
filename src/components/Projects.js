@@ -181,7 +181,7 @@ const Projects = () => {
               state={state}
               id={item.id}
             >
-              {item.text} <StyledArrow src={arrowRight} />
+              {item.text} <StyledArrow src={arrowRight} alt="arrow icon" />
             </StyledNavItem>
           </AniLink>
         ))}
