@@ -45,6 +45,10 @@ const Label = styled.span`
 `
 
 const StyledInputName = styled.input`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   border: none;
   border: 1px solid ${({ theme }) => theme.color.darkGrey};
   background-color: ${({ theme }) => theme.color.mainWhite};
@@ -82,6 +86,10 @@ const StyledInputName = styled.input`
 `
 
 const StyledInputEmail = styled.input`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   border: none;
   border: 1px solid ${({ theme }) => theme.color.darkGrey};
   background-color: ${({ theme }) => theme.color.mainWhite};
@@ -119,6 +127,10 @@ const StyledInputEmail = styled.input`
 `
 
 const StyledTextarea = styled.textarea`
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   width: 100%;
   height: 140px;
   padding: 10px;
