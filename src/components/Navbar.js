@@ -118,7 +118,7 @@ const Navbar = ({ title, titleColor, navColor, logo, children }) => {
         bg="#ff7500"
         duration={0.6}
         logo={logo}
-        title="home page link"
+        title="link to home page"
       />
       <StyledTitle titleColor={titleColor}>{title}</StyledTitle>
       <Menu toggleMenu={toggleMenu} state={state} navColor={navColor} />
