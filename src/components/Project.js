@@ -395,7 +395,7 @@ const Project = ({ title, pageContext }) => {
           >
             <StyledButtonNext>
               <h4>next</h4>
-              <img src={arrowIcon} />
+              <img src={arrowIcon} alt="arrow icon" />
             </StyledButtonNext>
           </AniLink>
         </StyledBottomNav>
@@ -410,7 +410,7 @@ const Project = ({ title, pageContext }) => {
             bg="#ff7500"
           >
             <StyledButtonPrev>
-              <img src={arrowIcon} />
+              <img src={arrowIcon} alt="arrow icon" />
               <h4>prev</h4>
             </StyledButtonPrev>
           </AniLink>
@@ -422,7 +422,7 @@ const Project = ({ title, pageContext }) => {
           >
             <StyledButtonNext>
               <h4>next</h4>
-              <img src={arrowIcon} />
+              <img src={arrowIcon} alt="arrow icon" />
             </StyledButtonNext>
           </AniLink>
         </StyledBottomNav>
@@ -436,7 +436,7 @@ const Project = ({ title, pageContext }) => {
             bg="#ff7500"
           >
             <StyledButtonPrev>
-              <img src={arrowIcon} />
+              <img src={arrowIcon} alt="arrow icon" />
               <h4>prev</h4>
             </StyledButtonPrev>
           </AniLink>
