@@ -4,8 +4,9 @@ import logoDark from '../images/mm-logo-dark.svg'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Blob from '../components/atoms/Blob'
 import menuList from '../utils/menu' // menu items array
-import image from '../images/mikem-io.jpg'
+import Img from 'gatsby-image'
 import { device } from '../utils/device'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const StyledMenuButton = styled.button`
   padding: 10px 10px 10px 10px;
@@ -101,25 +102,29 @@ const StyledSligingMenuContainer = styled.div`
     `}
 `
 
+const StyledSlidingMenuBlobContainer = styled.div`
+  width: 0vw;
+  min-height: 100vh;
+
+  @media ${device.tablet} {
+    width: 50vw;
+    position: relative;
+  }
+`
+
+const StyledImage = styled(Img)`
+  height: 100vh;
+`
+
 const StyledMenuBlob = styled.div`
   display: none;
   margin-top: 10vh;
 
   @media ${device.tablet} {
     display: block;
-  }
-`
-
-const StyledSlidingMenuBlobContainer = styled.div`
-  width: 0vw;
-  min-height: 100vh;
-  background-image: url(${image});
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
-
-  @media ${device.tablet} {
-    width: 50vw;
+    position: absolute;
+    z-index: 1099;
+    left: calc(50% - 160px);
   }
 `
 
@@ -180,6 +185,17 @@ const StyledSlidingMenuListContainer = styled.div`
 `
 
 const Menu = ({ navColor, toggleMenu, state }) => {
+  const data = useStaticQuery(graphql`
+    {
+      slidingImg: file(relativePath: { eq: "mikem-io.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <>
       <StyledMenuButton onClick={toggleMenu} aria-label="menu button">
@@ -192,6 +208,7 @@ const Menu = ({ navColor, toggleMenu, state }) => {
           <StyledMenuBlob>
             <Blob size="320px" icon={logoDark} />
           </StyledMenuBlob>
+          <StyledImage fluid={data.slidingImg.childImageSharp.fluid} />
         </StyledSlidingMenuBlobContainer>
         <StyledSlidingMenuListContainer>
           {menuList.map((item, index) => (
