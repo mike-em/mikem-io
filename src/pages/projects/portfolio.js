@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import MainLayout from '../components/MainLayout'
-import mailLight from '../images/mail-icon-light.svg'
-import Blob from '../components/atoms/Blob'
+import Navbar from '../../components/Navbar'
+import MainLayout from '../../components/MainLayout'
+import mailLight from '../../images/mail-icon-light.svg'
+import Blob from '../../components/atoms/Blob'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import Project from '../components/Project'
-import SEO from '../components/seo'
+import Project from '../../components/Project'
+import SEO from '../../components/seo'
 
 const PhotoghraphyPage = () => {
   return (

@@ -15,7 +15,7 @@ export default [
     ],
     projectUrl: 'https://ecommerce-mikem-io.netlify.com/',
     githubUrl: 'https://github.com/mike-em/ecommerce-demo-page',
-    nextLink: '/client-panel',
+    nextLink: '/projects/client-panel',
   },
   {
     id: 2,
@@ -32,8 +32,8 @@ export default [
     ],
     projectUrl: 'https://client-panel-mikem-io.netlify.com',
     githubUrl: 'https://github.com/mike-em/client-panel-demo',
-    nextLink: '/portfolio',
-    prevLink: '/ecommerce',
+    nextLink: '/projects/portfolio',
+    prevLink: '/projects/ecommerce',
   },
   {
     id: 3,
@@ -50,6 +50,6 @@ export default [
     ],
     projectUrl: 'https://animal-photography-mikem-io.netlify.com/',
     githubUrl: 'https://github.com/mike-em/animal-photography',
-    prevLink: '/client-panel',
+    prevLink: '/projects/client-panel',
   },
 ]

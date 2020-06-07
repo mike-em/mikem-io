@@ -1,7 +1,7 @@
 export default [
   {
     text: 'ecommerce',
-    url: '/ecommerce',
+    url: '/projects/ecommerce',
     image: 'one',
     id: 'one',
   },
@@ -13,13 +13,13 @@ export default [
   // },
   {
     text: 'client panel',
-    url: '/client-panel',
+    url: '/projects/client-panel',
     image: 'two',
     id: 'two',
   },
   {
     text: 'portfolio',
-    url: '/portfolio',
+    url: '/projects/portfolio',
     image: 'three',
     id: 'three',
   },
