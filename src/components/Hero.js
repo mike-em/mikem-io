@@ -77,7 +77,7 @@ const StyledBlobContainer = styled.div`
 
   @media ${device.xl} {
     margin-top: -220px;
-    margin-right: -500px;
+    margin-right: -650px;
   }
 `
 

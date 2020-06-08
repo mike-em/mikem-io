@@ -47,6 +47,9 @@ const StyledBlob = styled.div`
     background-color: ${({ theme }) => theme.color.primary};
     transform-origin: 50% 50%;
     animation: ${p => BlobAnimation(p)} 10s linear infinite;
+    -webkit-animation: ${p => BlobAnimation(p)} 10s linear infinite;
+    -moz-animation: ${p => BlobAnimation(p)} 10s linear infinite;
+    -o-animation: ${p => BlobAnimation(p)} 10s linear infinite;
 
     @media ${device.tablet} {
       min-height: 300px;

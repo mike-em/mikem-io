@@ -50,6 +50,9 @@ const StyledBlob = styled.div`
     background-position: center;
     transform-origin: 50% 50%;
     animation: ${p => BlobAnimation(p)} 10s linear infinite;
+    -webkit-animation: ${p => BlobAnimation(p)} 10s linear infinite;
+    -moz-animation: ${p => BlobAnimation(p)} 10s linear infinite;
+    -o-animation: ${p => BlobAnimation(p)} 10s linear infinite;
   }
 `
 
