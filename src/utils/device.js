@@ -4,7 +4,7 @@ const size = {
   tablet: '768px',
   laptop: '1024px',
   desktop: '1280px',
-  fourK: '1800px',
+  fourK: '2300px',
 }
 
 export const device = {
